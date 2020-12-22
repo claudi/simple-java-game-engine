@@ -1,5 +1,7 @@
 # Ignore all files without extension
 *
+!*/
 !*.*
+*.class
 !Makefile
 .tags
