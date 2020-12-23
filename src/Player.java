@@ -1,7 +1,8 @@
 import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.event.*;
 
-public class Player {
+public class Player implements KeyListener {
     int pos_x, pos_y, v;
     int width = 30;
     int height = 10;
@@ -23,6 +24,12 @@ public class Player {
         graphics.setColor(Color.WHITE);
         graphics.drawRect(pos_x, pos_y, width, height);
         graphics.drawLine(pos_x + (int)(width * 0.75), pos_y, pos_x + (int)(width * 0.75), pos_y + height);
+    }
+
+    public void keyTyped(KeyEvent e) {}
+    public void keyPressed(KeyEvent e) {}
+    public void keyReleased(KeyEvent e) {
+        System.out.println("Key pressed - Player");
     }
 }
 

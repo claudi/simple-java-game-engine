@@ -6,15 +6,16 @@ public class Game {
 
     Game(GameFrame frame) {
         this.frame = frame;
+        initEntities();
     }
 
     void run() {
-        initEntities();
-
         while(true) {
-            makeMoves();
-            detectCollisions();
-            render();
+            if(frame.active) {
+                makeMoves();
+                detectCollisions();
+                render();
+            }
             delay();
         }
     }
