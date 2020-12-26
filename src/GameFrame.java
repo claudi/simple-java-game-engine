@@ -10,6 +10,7 @@ public class GameFrame extends Frame implements WindowListener {
     static int WIDTH = 800, HEIGHT = 600;
     Graphics graphics;
     Boolean active = false;
+    Boolean printGrid = false; // DEBUG
 
     public static void main(String [] args) {
         new GameFrame();
@@ -32,6 +33,15 @@ public class GameFrame extends Frame implements WindowListener {
     void render() {
         graphics.setColor(Color.BLACK);
         graphics.fillRect(0, 0, WIDTH, HEIGHT);
+        if(printGrid) { // DEBUG
+            graphics.setColor(Color.DARK_GRAY);
+            for(int i = 0; i < WIDTH; i += 5) {
+                graphics.drawLine(i, 0, i, HEIGHT);
+            }
+            for(int i = 0; i < HEIGHT; i += 5) {
+                graphics.drawLine(0, i, WIDTH, i);
+            }
+        }
     }
 
     public void paint(Graphics graphics) {
@@ -49,11 +59,9 @@ public class GameFrame extends Frame implements WindowListener {
     }
     public void windowDeactivated(WindowEvent e) {
         active = false;
-        //System.out.println("Pause");
     }
     public void windowActivated(WindowEvent e) {
         active = true;
-        //System.out.println("Unpause");
     }
     public void windowDeiconified(WindowEvent e) {}
     public void windowIconified(WindowEvent e) {}
