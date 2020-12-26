@@ -21,7 +21,7 @@ public class Game {
     }
 
     void initEntities() {
-        player = new Player(30, 550, 3);
+        player = new Player(GameFrame.WIDTH / 2, 550);
     }
 
     void makeMoves() {
@@ -33,7 +33,6 @@ public class Game {
     void render() {
         frame.render();
         player.render(frame.graphics);
-
 
         frame.repaint();
     }
