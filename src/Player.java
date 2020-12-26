@@ -16,17 +16,17 @@ public class Player implements KeyListener {
     }
 
     void move() {
-        if(pos_x < 0.85*GameFrame.WIDTH) {
+        if(pos_x < 0.90*GameFrame.WIDTH) {
             pos_x += v_r;
         }
-        if(pos_x > 0.15*GameFrame.WIDTH) {
+        if(pos_x > 0.10*GameFrame.WIDTH) {
             pos_x += v_l;
         }
     }
 
     void render(Graphics graphics) {
         graphics.setColor(Color.WHITE);
-        graphics.fillRect(pos_x, pos_y, width, height);
+        graphics.fillRect(pos_x - width/2, pos_y, width, height);
     }
 
     public void keyTyped(KeyEvent e) {
