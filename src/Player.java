@@ -7,11 +7,10 @@ public class Player implements KeyListener {
     boolean vb_l = false, vb_r = false;
     int v_l = 0, v_r = 0;
     static int v_increment = 10;
-    int width = 30;
-    int height = 10;
+    static int width = 30, height = 10;
 
     public Player(int pos_x, int pos_y) {
-        this.pos_x = pos_x - width/2;
+        this.pos_x = pos_x;
         this.pos_y = pos_y;
     }
 

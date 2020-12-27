@@ -10,7 +10,7 @@ public class GameFrame extends Frame implements WindowListener {
     static int WIDTH = 800, HEIGHT = 600;
     Graphics graphics;
     Boolean active = false;
-    Boolean printGrid = false; // DEBUG
+    public static Boolean printGrid = false; // DEBUG
 
     public static void main(String [] args) {
         new GameFrame();
@@ -41,6 +41,8 @@ public class GameFrame extends Frame implements WindowListener {
             for(int i = 0; i < HEIGHT; i += 5) {
                 graphics.drawLine(0, i, WIDTH, i);
             }
+            graphics.setColor(Color.YELLOW);
+            graphics.drawLine(WIDTH/2, 0, WIDTH/2, HEIGHT);
         }
     }
 

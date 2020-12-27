@@ -3,9 +3,11 @@ import java.awt.Color;
 public class Game {
     Player player;
     GameFrame frame;
+    Enemies enemies;
 
     Game(GameFrame frame) {
         this.frame = frame;
+
         initEntities();
     }
 
@@ -21,11 +23,14 @@ public class Game {
     }
 
     void initEntities() {
-        player = new Player(GameFrame.WIDTH / 2, 550);
+        player = new Player(GameFrame.WIDTH/2,
+                            GameFrame.HEIGHT - 5*Player.height);
+        enemies = new Enemies(5, 5);
     }
 
     void makeMoves() {
         player.move();
+        enemies.move();
     }
 
     void detectCollisions() {}
@@ -33,7 +38,7 @@ public class Game {
     void render() {
         frame.render();
         player.render(frame.graphics);
-
+        enemies.render(frame.graphics);
         frame.repaint();
     }
 
