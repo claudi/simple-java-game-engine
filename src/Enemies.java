@@ -1,5 +1,6 @@
 import java.awt.Graphics;
 import java.awt.Color;
+import java.util.ArrayList;
 
 public class Enemies {
     int n, m;
@@ -7,18 +8,18 @@ public class Enemies {
     int pos_x = GameFrame.WIDTH/2, pos_y = pad_y;
     int width, height;
     int v = 3;
-    Enemy[] enemies;
+    ArrayList<Enemy> enemies;
 
     Enemies(int n, int m) {
         this.n = n;
         this.m = m;
         width = pad_x*(n-1) + Enemy.width;
         height = pad_y*(n-1) + Enemy.height;
-        enemies = new Enemy[n*m];
+        enemies = new ArrayList<Enemy>();
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < m; j++) {
-                enemies[m*i + j] = new Enemy(pos_x + Enemy.width/2 + pad_x*i - width/2,
-                                             pos_y + pad_y*j);
+                enemies.add(new Enemy(pos_x + Enemy.width/2 + pad_x*i - width/2,
+                                      pos_y + pad_y*j));
             }
         }
     }
