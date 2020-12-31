@@ -13,10 +13,6 @@ public class Enemy {
         count++;
     }
 
-    protected void finalize() {
-        count--;
-    }
-
     void move(int v) {
         pos_x += v;
     }
