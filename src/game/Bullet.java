@@ -8,7 +8,7 @@ public class Bullet {
     int pos_x, pos_y;
     public static int width = 3;
     public static int height = 12;
-    static int v = 10;
+    static int v = 12;
 
     public Bullet(Player player) {
         this.pos_x = player.pos_x;
