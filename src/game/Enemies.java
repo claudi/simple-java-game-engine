@@ -30,9 +30,8 @@ public class Enemies {
 	        v = -v;
 	    } else if(pos_x + width/2 + pad_x > GameFrame.WIDTH) {
 	        v = -v;
-	    } else {
-	        v = v;
 	    }
+	    
 	    for(Enemy enemy: enemies) {
 	        enemy.move(v);
 	    }
