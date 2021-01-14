@@ -1,7 +1,7 @@
 package game;
 
-import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Graphics;
 
 public class Bullet {
     static int count = 0;

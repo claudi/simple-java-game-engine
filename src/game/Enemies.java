@@ -1,6 +1,7 @@
 package game;
-import java.awt.Graphics;
+
 import java.awt.Color;
+import java.awt.Graphics;
 import java.util.ArrayList;
 
 public class Enemies {

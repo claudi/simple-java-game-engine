@@ -1,8 +1,10 @@
 package game;
-import java.util.ArrayList;
-import java.awt.Graphics;
+
 import java.awt.Color;
-import java.awt.event.*;
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.util.ArrayList;
 
 public class Player implements KeyListener {
 	int pos_x, pos_y;

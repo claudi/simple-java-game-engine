@@ -1,9 +1,11 @@
 package game;
+
+import java.awt.Color;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Color;
-import java.awt.event.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 public class GameFrame extends Frame implements WindowListener {
 	private static final long serialVersionUID = 1L;
