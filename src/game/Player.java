@@ -4,8 +4,7 @@ import java.awt.Graphics;
 import java.awt.Color;
 import java.awt.event.*;
 
-public class Player implements KeyListener {
-	int pos_x, pos_y;
+public class Player extends Entity implements KeyListener {
 	boolean vb_l = false, vb_r = false;
 	int v_l = 0, v_r = 0;
 	static int v_increment = 10;
@@ -13,8 +12,7 @@ public class Player implements KeyListener {
 	ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 
 	public Player(int pos_x, int pos_y) {
-	    this.pos_x = pos_x;
-	    this.pos_y = pos_y;
+		super(pos_x, pos_y);
 	}
 
 	void move() {
