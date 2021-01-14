@@ -4,14 +4,14 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
 
 public class Player extends Entity implements KeyListener {
 	boolean vb_l = false, vb_r = false;
 	int v_l = 0, v_r = 0;
 	static int v_increment = 10;
 	static int width = 30, height = 10;
-	ArrayList<Bullet> bullets = new ArrayList<Bullet>();
+	private int bullet_speed = -12;
+	Bullets bullets = new Bullets(bullet_speed);
 
 	public Player(int pos_x, int pos_y) {
 		super(pos_x, pos_y);
@@ -24,17 +24,13 @@ public class Player extends Entity implements KeyListener {
 	    if(pos_x > 0.10*GameFrame.WIDTH) {
 	        pos_x += v_l;
 	    }
-	    for(Bullet bullet: bullets) {
-	        bullet.move();
-	    }
+	    bullets.move();
 	}
 
 	void render(Graphics graphics) {
 	    graphics.setColor(Color.WHITE);
 	    graphics.fillRect(pos_x - width/2, pos_y, width, height);
-	    for(Bullet bullet: bullets) {
-	        bullet.render(graphics);
-	    }
+	    bullets.render(graphics);
 	}
 
 	public void keyTyped(KeyEvent e) {
