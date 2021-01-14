@@ -7,7 +7,7 @@ public class Enemies {
 	int n, m;
 	int pad_x = 3*Enemy.width, pad_y = 2*Enemy.height;
 	int pos_x = GameFrame.WIDTH/2, pos_y = pad_y;
-	int width, height;
+	public int width, height;
 	int v = 3;
 	ArrayList<Enemy> enemies;
 
