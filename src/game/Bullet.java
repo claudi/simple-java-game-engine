@@ -3,16 +3,14 @@ package game;
 import java.awt.Graphics;
 import java.awt.Color;
 
-public class Bullet {
+public class Bullet extends Entity {
     static int count = 0;
-    int pos_x, pos_y;
     public static int width = 3;
     public static int height = 12;
     static int v = 12;
 
     public Bullet(Player player) {
-        this.pos_x = player.pos_x;
-        this.pos_y = player.pos_y;
+    	super(player.pos_x, player.pos_y);
         count++;
     }
 
