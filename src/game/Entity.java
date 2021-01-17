@@ -1,11 +1,12 @@
 package game;
 
-public class Entity {
-	int pos_x, pos_y;
+import java.awt.Rectangle;
+
+public class Entity extends Rectangle {
+	private static final long serialVersionUID = 5451297122160808705L;
 	public static int width, height;
 	
-	public Entity(int pos_x, int pos_y) {
-	    this.pos_x = pos_x;
-	    this.pos_y = pos_y;
+	public Entity(int x, int y) {
+	    super(x, y, width, height);
 	}
 }

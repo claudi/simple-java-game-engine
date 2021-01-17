@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Player extends Entity implements KeyListener {
+	private static final long serialVersionUID = -7041312168754043883L;
 	boolean vb_l = false, vb_r = false;
 	int v_l = 0, v_r = 0;
 	static int v_increment = 10;
@@ -18,18 +19,18 @@ public class Player extends Entity implements KeyListener {
 	}
 
 	void move() {
-	    if(pos_x < 0.90*GameFrame.WIDTH) {
-	        pos_x += v_r;
+	    if(x < 0.90*GameFrame.WIDTH) {
+	        x += v_r;
 	    }
-	    if(pos_x > 0.10*GameFrame.WIDTH) {
-	        pos_x += v_l;
+	    if(x > 0.10*GameFrame.WIDTH) {
+	        x += v_l;
 	    }
 	    bullets.move();
 	}
 
 	void render(Graphics graphics) {
 	    graphics.setColor(Color.WHITE);
-	    graphics.fillRect(pos_x - width/2, pos_y, width, height);
+	    graphics.fillRect(x - width/2, y, width, height);
 	    bullets.render(graphics);
 	}
 
