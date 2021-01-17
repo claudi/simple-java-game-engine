@@ -4,21 +4,22 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Enemy extends Entity {
+	private static final long serialVersionUID = -7337660856552688489L;
 	static int count = 0;
 	public static int width = 30;
 	public static int height = 20;
 
-	public Enemy(int pos_x, int pos_y) {
-	    super(pos_x, pos_y);
+	public Enemy(int x, int y) {
+	    super(x, y);
 	    count++;
 	}
 
 	void move(int v) {
-	    pos_x += v;
+	    x += v;
 	}
 
 	void render(Graphics graphics) {
 	    graphics.setColor(Color.WHITE);
-	    graphics.fillRect(pos_x - width/2, pos_y, width, height);
+	    graphics.fillRect(x - width/2, y, width, height);
 	}
 }
