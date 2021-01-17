@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Bullet extends Entity {
-	private static final long serialVersionUID = -7723108563984648507L;
 	static int count = 0;
     public static int width = 3;
     public static int height = 12;

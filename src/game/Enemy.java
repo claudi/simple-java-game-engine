@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Enemy extends Entity {
-	private static final long serialVersionUID = -7337660856552688489L;
 	static int count = 0;
 	public static int width = 30;
 	public static int height = 20;

@@ -6,7 +6,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Player extends Entity implements KeyListener {
-	private static final long serialVersionUID = -7041312168754043883L;
 	boolean vb_l = false, vb_r = false;
 	int v_l = 0, v_r = 0;
 	static int v_increment = 10;
