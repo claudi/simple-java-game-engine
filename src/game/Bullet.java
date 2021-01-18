@@ -11,7 +11,9 @@ public class Bullet extends Sprite {
     public Bullet(int pos_x, int pos_y) {
     	this.pos_x = pos_x;
     	this.pos_y = pos_y;
-    	pixels.add(new Pixel(pos_x, pos_y, color));
+    	for(int iter = 0; iter < 4; iter++) {
+    		pixels.add(new Pixel(pos_x, pos_y + iter*Pixel.height, color));
+    	}
     	count++;
     }
 

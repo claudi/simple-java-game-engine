@@ -17,7 +17,12 @@ public class Player extends Sprite implements KeyListener {
 	public Player(int pos_x, int pos_y) {
 		this.pos_x = pos_x;
 		this.pos_y = pos_y;
-		pixels.add(new Pixel(pos_x, pos_y, color));
+		int pixel_width = 11;
+		for(int iter = 0; iter < pixel_width; iter++) {
+			pixels.add(new Pixel(pos_x + (iter - pixel_width/2)*Pixel.width/2, pos_y, color));
+			pixels.add(new Pixel(pos_x + (iter - pixel_width/2)*Pixel.width/2, pos_y + Pixel.height, color));
+			pixels.add(new Pixel(pos_x + (iter - pixel_width/2)*Pixel.width/2, pos_y + 2*Pixel.height, color));
+		}
 	}
 
 	void move() {

@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Pixel extends Entity {
-	private final int width = 5, height = 5;
+	final static int width = 5, height = 5;
 	private Color color;
 	
 	public Pixel(int pos_x, int pos_y, Color color) {

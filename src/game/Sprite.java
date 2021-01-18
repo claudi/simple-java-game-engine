@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 public class Sprite extends Entity {
-	ArrayList<Pixel> pixels = new ArrayList<Pixel>();
+	ArrayList<Pixel> pixels = new ArrayList<Pixel>(); // TODO: Make private (and not initialised?)
 	
 	void render(Graphics graphics) {
 		for(Pixel pixel: pixels) {
