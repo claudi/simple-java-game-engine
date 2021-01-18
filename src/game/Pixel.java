@@ -22,5 +22,11 @@ public class Pixel extends Entity {
 		pos_x += dx;
 		pos_y += dy;
 	}
+
+	@Override
+	boolean collision(Entity entiry) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }
