@@ -1,11 +1,9 @@
 package game;
 
-public class Entity {
-	public int x, y;
-	public static int width, height;
-	
-	public Entity(int x, int y) {
-	    this.x = x;
-	    this.y = y;
-	}
+import java.awt.Graphics;
+
+abstract public class Entity {
+	int pos_x, pos_y; // Central position of Entity 
+	abstract void render(Graphics graphics);
+	abstract void move(int dx, int dy);
 }
