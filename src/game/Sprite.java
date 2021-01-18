@@ -19,4 +19,13 @@ public class Sprite extends Entity {
 		pos_x += dx;
 		pos_y += dy;
 	}
+	
+	boolean collision(Entity entity) {
+		for(Pixel pixel: pixels) {
+			if(pixel.collision(entity)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
