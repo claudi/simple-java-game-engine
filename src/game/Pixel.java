@@ -23,9 +23,15 @@ public class Pixel extends Entity {
 		pos_y += dy;
 	}
 
-	@Override
-	boolean collision(Entity entiry) {
-		// TODO Auto-generated method stub
+	boolean collision(Entity entity) {
+		boolean leftLTright = this.pos_x - width/2 <= entity.pos_x + width/2;
+		boolean rightGTleft = this.pos_x + width/2 >= entity.pos_x - width/2;
+		boolean topLTbottom = this.pos_y <= entity.pos_y + height;
+		boolean bottolGTtop = this.pos_y + height >= entity.pos_y;
+
+		if(leftLTright && rightGTleft && topLTbottom && bottolGTtop) {
+			return true;
+		}
 		return false;
 	}
 	
