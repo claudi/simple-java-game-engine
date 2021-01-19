@@ -15,8 +15,10 @@ public class Player extends Sprite implements KeyListener {
 	Bullets bullets = new Bullets(bullet_speed);
 
 	static boolean pixel_array[][] = {
-			{true, true, true, true, true, true, true, true, true, true, true},
-			{true, true, true, true, true, true, true, true, true, true, true}
+			{false, false, false, false, true, false, false, false, false},
+			{false, true, true, true, true, true, true, true, false},
+			{false, true, true, true, true, true, true, true, false},
+			{true, true, true, true, true, true, true, true, true}
 	};
 
 	public Player(int pos_x, int pos_y) {
