@@ -1,5 +1,7 @@
 package game;
 
+import java.util.ArrayList;
+
 public class Game {
     Player player;
     GameFrame frame;
@@ -33,7 +35,29 @@ public class Game {
         enemies.move();
     }
     
-    void detectCollisions() {}
+	ArrayList<Bullet> dead_bullets = new ArrayList<Bullet>();
+	ArrayList<Enemy> dead_enemies = new ArrayList<Enemy>();
+
+    void detectCollisions() {
+		for(Bullet bullet: player.bullets.bullets) {
+			for(Enemy enemy: enemies.enemies) {
+				if(bullet.collision(enemy)) {
+					dead_bullets.add(bullet);
+					dead_enemies.add(enemy);
+				}
+			}
+		}
+
+		for(Bullet bullet: dead_bullets) {
+			player.bullets.bullets.remove(bullet);
+		}
+		for(Enemy enemy: dead_enemies) {
+			enemies.enemies.remove(enemy);
+		}
+
+		dead_bullets.clear();
+		dead_enemies.clear();
+    }
 
     void render() {
         frame.render();
