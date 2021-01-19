@@ -1,24 +1,28 @@
 package game;
 
 import java.awt.Color;
-import java.awt.Graphics;
 
-public class Enemy extends Entity {
+public class Enemy extends Sprite {
 	static int count = 0;
 	public static int width = 30;
-	public static int height = 20;
+	public static int height = 25;
+	static final Color color = Color.WHITE;
 
-	public Enemy(int x, int y) {
-	    super(x, y);
+	static boolean pixel_array[][] = {
+			{false, false,  true, false, false, false, false,  true, false, false},
+			{false, false, false,  true, false, false,  true, false, false, false},
+			{false, false,  true,  true,  true,  true,  true,  true, false, false},
+			{false,  true,  true, false,  true,  true, false,  true,  true, false},
+			{ true,  true,  true,  true,  true,  true,  true,  true,  true,  true},
+			{ true, false,  true,  true,  true,  true,  true,  true, false,  true},
+			{false, false, false,  true, false, false,  true, false, false, false},
+			{false, false,  true, false, false, false, false,  true, false, false}
+	};
+
+	public Enemy(int pos_x, int pos_y) {
+		super(pixel_array, pos_x, pos_y, color);
+		this.pos_x = pos_x;
+		this.pos_y = pos_y;
 	    count++;
-	}
-
-	void move(int v) {
-	    x += v;
-	}
-
-	void render(Graphics graphics) {
-	    graphics.setColor(Color.WHITE);
-	    graphics.fillRect(x - width/2, y, width, height);
 	}
 }
