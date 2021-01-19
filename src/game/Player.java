@@ -11,18 +11,18 @@ public class Player extends Sprite implements KeyListener {
 	static int v_increment = 10;
 	static int width = 30, height = 10;
 	private int bullet_speed = -12;
-	static private Color color = Color.WHITE;
+	static final Color color = Color.WHITE;
 	Bullets bullets = new Bullets(bullet_speed);
 
+	static boolean pixel_array[][] = {
+			{true, true, true, true, true, true, true, true, true, true, true},
+			{true, true, true, true, true, true, true, true, true, true, true}
+	};
+
 	public Player(int pos_x, int pos_y) {
+		super(pixel_array, pos_x, pos_y, color);
 		this.pos_x = pos_x;
 		this.pos_y = pos_y;
-		int pixel_width = 11;
-		for(int iter = 0; iter < pixel_width; iter++) {
-			pixels.add(new Pixel(pos_x + (iter - pixel_width/2)*Pixel.width/2, pos_y, color));
-			pixels.add(new Pixel(pos_x + (iter - pixel_width/2)*Pixel.width/2, pos_y + Pixel.height, color));
-			pixels.add(new Pixel(pos_x + (iter - pixel_width/2)*Pixel.width/2, pos_y + 2*Pixel.height, color));
-		}
 	}
 
 	void move() {
