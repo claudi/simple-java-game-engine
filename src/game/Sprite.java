@@ -9,13 +9,13 @@ public class Sprite extends Entity {
 	int height, width;
 	ArrayList<Pixel> pixels = new ArrayList<Pixel>(); // TODO: Make private (and not initialised?)
 	
-	public Sprite(boolean[][] pixel_array, int pos_x, int pos_y, Color color) {
+	public Sprite(Color[][] pixel_array, int pos_x, int pos_y) {
 		this.height = pixel_array.length;
 		this.width = pixel_array[0].length;
 		for(int i = 0; i < width; i++) {
 			for(int j = 0; j < height; j++) {
-				if(pixel_array[j][i]) {
-					pixels.add(new Pixel(pos_x + (i - width/2)*Pixel.width, pos_y + j*Pixel.height, color));
+				if(pixel_array[j][i] != null) {
+					pixels.add(new Pixel(pos_x + (i - width/2)*Pixel.width, pos_y + j*Pixel.height, pixel_array[j][i]));
 				}
 			}
 		}
