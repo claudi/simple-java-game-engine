@@ -37,7 +37,7 @@ public class Sprite extends Entity {
 	
 	boolean collision(Entity entity) {
 		for(Pixel pixel: pixels) {
-			if(pixel.collision(entity)) {
+			if(entity.collision(pixel)) {
 				return true;
 			}
 		}
