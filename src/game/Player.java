@@ -49,8 +49,7 @@ public class Player extends Sprite implements KeyListener {
 	    bullets.render(graphics);
 	}
 
-	public void keyTyped(KeyEvent e) {
-	}
+	public void keyTyped(KeyEvent e) {}
 	
 	public void keyReleased(KeyEvent e) {
 	    if(e.getKeyCode() == KeyEvent.VK_A) {
