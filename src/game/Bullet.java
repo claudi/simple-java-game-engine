@@ -1,24 +1,36 @@
 package game;
 
 import java.awt.Color;
-import java.awt.Graphics;
 
-public class Bullet extends Entity {
+public class Bullet extends Sprite {
 	static int count = 0;
     public static int width = 3;
     public static int height = 12;
+    static final Color color = Color.WHITE;
 
-    public Bullet(Player player) {
-    	super(player.x, player.y);
-        count++;
+	static boolean pixel_array[][] = {
+			{true},
+			{true},
+			{true},
+			{true},
+			{true}
+	};
+
+    public Bullet(int pos_x, int pos_y) {
+    	super(pixel_array, pos_x, pos_y, color);
+    	this.pos_x = pos_x;
+    	this.pos_y = pos_y;
+    	count++;
     }
 
     void move(int v) {
-        y += v;
+        super.move(0, v);
     }
 
-    void render(Graphics graphics) {
-        graphics.setColor(Color.WHITE);
-        graphics.fillRect(x - width/2, y, width, height);
+    public boolean outOfBounds() {
+    	if(pos_y <= 0) {
+    		return true;
+    	}
+    	return false;
     }
 }

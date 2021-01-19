@@ -5,31 +5,38 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Player extends Entity implements KeyListener {
+public class Player extends Sprite implements KeyListener {
 	boolean vb_l = false, vb_r = false;
 	int v_l = 0, v_r = 0;
 	static int v_increment = 10;
 	static int width = 30, height = 10;
 	private int bullet_speed = -12;
+	static final Color color = Color.WHITE;
 	Bullets bullets = new Bullets(bullet_speed);
 
+	static boolean pixel_array[][] = {
+			{true, true, true, true, true, true, true, true, true, true, true},
+			{true, true, true, true, true, true, true, true, true, true, true}
+	};
+
 	public Player(int pos_x, int pos_y) {
-		super(pos_x, pos_y);
+		super(pixel_array, pos_x, pos_y, color);
+		this.pos_x = pos_x;
+		this.pos_y = pos_y;
 	}
 
 	void move() {
-	    if(x < 0.90*GameFrame.WIDTH) {
-	        x += v_r;
+	    if(pos_x < 0.90*GameFrame.WIDTH) {
+	        super.move(v_r, 0);
 	    }
-	    if(x > 0.10*GameFrame.WIDTH) {
-	        x += v_l;
+	    if(pos_x > 0.10*GameFrame.WIDTH) {
+	        super.move(v_l, 0);
 	    }
 	    bullets.move();
 	}
 
 	void render(Graphics graphics) {
-	    graphics.setColor(Color.WHITE);
-	    graphics.fillRect(x - width/2, y, width, height);
+	    super.render(graphics);
 	    bullets.render(graphics);
 	}
 
@@ -54,7 +61,7 @@ public class Player extends Entity implements KeyListener {
 	        vb_r = true;
 	        v_r += v_increment;
 	    } else if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-	        bullets.add(new Bullet(this));
+	        bullets.add(new Bullet(pos_x, pos_y));
 	    }
 	}
 }

@@ -34,7 +34,7 @@ public class Enemies {
 	    }
 	    
 	    for(Enemy enemy: enemies) {
-	        enemy.move(v);
+	        enemy.move(v, 0);
 	    }
 	    pos_x += v;
 	}
