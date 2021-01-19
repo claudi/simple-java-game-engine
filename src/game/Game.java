@@ -19,12 +19,13 @@ public class Game {
                 makeMoves();
                 detectCollisions();
                 render();
+                endFrame();
             }
             delay();
         }
     }
 
-    void initEntities() {
+	void initEntities() {
         player = new Player(GameFrame.WIDTH/2,
                             GameFrame.HEIGHT - 5*Player.height);
         enemies = new Enemies(5, 5);
@@ -64,6 +65,11 @@ public class Game {
         player.render(frame.graphics);
         enemies.render(frame.graphics);
         frame.repaint();
+    }
+
+    void endFrame() {
+		player.endFrame();
+		enemies.endFrame();
     }
 
     void delay() {

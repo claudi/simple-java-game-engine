@@ -10,6 +10,7 @@ public class Player extends Sprite implements KeyListener {
 	int v_l = 0, v_r = 0;
 	static int v_increment = 10;
 	static int width = 30, height = 10;
+	int bullet_cooldown = 0;
 	private int bullet_speed = -12;
 	static final Color color = Color.WHITE;
 	Bullets bullets = new Bullets(bullet_speed);
@@ -35,6 +36,12 @@ public class Player extends Sprite implements KeyListener {
 	        super.move(v_l, 0);
 	    }
 	    bullets.move();
+	}
+
+	void endFrame() {
+		if(bullet_cooldown > 0) {
+			bullet_cooldown--;
+		}
 	}
 
 	void render(Graphics graphics) {
@@ -63,7 +70,10 @@ public class Player extends Sprite implements KeyListener {
 	        vb_r = true;
 	        v_r += v_increment;
 	    } else if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-	        bullets.add(new Bullet(pos_x, pos_y));
+			if(bullet_cooldown == 0) {
+				bullet_cooldown += 5;
+				bullets.add(new Bullet(pos_x, pos_y));
+			}
 	    }
 	}
 }
