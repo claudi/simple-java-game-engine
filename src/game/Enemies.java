@@ -39,6 +39,12 @@ public class Enemies {
 	    pos_x += v;
 	}
 
+	void endFrame() {
+		for(Enemy enemy: enemies) {
+			enemy.endFrame();
+		}
+	}
+
 	void render(Graphics graphics) {
 	    if(GameFrame.printGrid) {
 	        graphics.setColor(Color.YELLOW);

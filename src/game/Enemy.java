@@ -25,4 +25,6 @@ public class Enemy extends Sprite {
 		this.pos_y = pos_y;
 	    count++;
 	}
+
+	void endFrame() {}
 }
