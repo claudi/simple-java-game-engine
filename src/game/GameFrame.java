@@ -11,7 +11,7 @@ public class GameFrame extends Frame implements WindowListener {
 	private static final long serialVersionUID = 1L;
 	Game game;
 	Image image;
-	static int WIDTH = 800, HEIGHT = 600;
+	static int WIDTH = 1280, HEIGHT = 720;
 	Graphics graphics;
 	Boolean active = false;
 	public static Boolean printGrid = false; // DEBUG
