@@ -15,15 +15,10 @@ public class Player extends Sprite implements KeyListener {
 	static final Color color = Color.WHITE;
 	Bullets bullets = new Bullets(bullet_speed);
 
-	static boolean pixel_array[][] = {
-			{false, false, false, false, true, false, false, false, false},
-			{false, true, true, true, true, true, true, true, false},
-			{false, true, true, true, true, true, true, true, false},
-			{true, true, true, true, true, true, true, true, true}
-	};
+	static Color pixel_array[][] = Game.sprites("player");
 
 	public Player(int pos_x, int pos_y) {
-		super(pixel_array, pos_x, pos_y, color);
+		super(pixel_array, pos_x, pos_y);
 		this.pos_x = pos_x;
 		this.pos_y = pos_y;
 	}
