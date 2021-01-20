@@ -1,6 +1,10 @@
 package game;
 
 import java.awt.Color;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Game {
@@ -32,18 +36,51 @@ public class Game {
         enemies = new Enemies(5, 5);
 	}
 
-	static Color[][] sprites() {
-		Color[][] pixel_array = new Color[][] {
-			{null, null,  Color.WHITE, null, null, null, null,  Color.WHITE, null, null},
-			{null, null, null,  Color.WHITE, null, null,  Color.WHITE, null, null, null},
-			{null, null,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE, null, null},
-			{null,  Color.WHITE,  Color.WHITE, null,  Color.WHITE,  Color.WHITE, null,  Color.WHITE,  Color.WHITE, null},
-			{ Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE},
-			{ Color.WHITE, null,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE, null,  Color.WHITE},
-			{null, null, null,  Color.WHITE, null, null,  Color.WHITE, null, null, null},
-			{null, null,  Color.WHITE, null, null, null, null,  Color.WHITE, null, null}
-		};
-		return pixel_array;
+	static Color[][] sprites(String name) {
+		System.out.println(name);
+		int width, height;
+		String file = "./res/" + name + ".xpm";
+		System.out.println("file");
+		Color sprite[][] = null;
+
+		BufferedReader reader;
+		try {
+			reader = new BufferedReader(new FileReader(file));
+			String line = reader.readLine();
+			
+			String dims[] = line.split(" ");
+			height = Integer.parseInt(dims[0]);
+			width = Integer.parseInt(dims[1]);
+
+			sprite = new Color[height][width];
+
+			for(int i = 0; i < height; i++) {
+				for(int j = 0; j < width; j++) {
+					int c = reader.read();
+					if(c == '\n') {
+						c = reader.read();
+					}
+					System.out.print(c);
+					System.out.print(" ");
+					if(c == 'X') {
+						sprite[i][j] = Color.WHITE;
+					} else {
+						sprite[i][j] = null;
+					}
+				}
+				System.out.println("");
+			}
+
+			reader.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("ERROR: file \"" + file + "\" not found");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("ERROR: IOException");
+			e.printStackTrace();
+		}
+
+		return sprite;
 	}
 
     void makeMoves() {
