@@ -1,5 +1,6 @@
 package game;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 public class Game {
@@ -29,7 +30,21 @@ public class Game {
         player = new Player(GameFrame.WIDTH/2,
                             GameFrame.HEIGHT - 5*Player.height);
         enemies = new Enemies(5, 5);
-    }
+	}
+
+	static Color[][] sprites() {
+		Color[][] pixel_array = new Color[][] {
+			{null, null,  Color.WHITE, null, null, null, null,  Color.WHITE, null, null},
+			{null, null, null,  Color.WHITE, null, null,  Color.WHITE, null, null, null},
+			{null, null,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE, null, null},
+			{null,  Color.WHITE,  Color.WHITE, null,  Color.WHITE,  Color.WHITE, null,  Color.WHITE,  Color.WHITE, null},
+			{ Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE},
+			{ Color.WHITE, null,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE, null,  Color.WHITE},
+			{null, null, null,  Color.WHITE, null, null,  Color.WHITE, null, null, null},
+			{null, null,  Color.WHITE, null, null, null, null,  Color.WHITE, null, null}
+		};
+		return pixel_array;
+	}
 
     void makeMoves() {
         player.move();

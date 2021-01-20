@@ -5,9 +5,8 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 
 public class Sprite extends Entity {
-	// private static ArrayList<Sprite> sprites = new ArrayList<Sprite>();
 	int height, width;
-	ArrayList<Pixel> pixels = new ArrayList<Pixel>(); // TODO: Make private (and not initialised?)
+	ArrayList<Pixel> pixels = new ArrayList<Pixel>();
 	
 	public Sprite(Color[][] pixel_array, int pos_x, int pos_y) {
 		this.height = pixel_array.length;

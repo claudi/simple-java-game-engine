@@ -8,16 +8,7 @@ public class Enemy extends Sprite {
 	public static int height = 25;
 	static final Color color = Color.WHITE;
 
-	static Color pixel_array[][] = {
-			{null, null,  Color.WHITE, null, null, null, null,  Color.WHITE, null, null},
-			{null, null, null,  Color.WHITE, null, null,  Color.WHITE, null, null, null},
-			{null, null,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE, null, null},
-			{null,  Color.WHITE,  Color.WHITE, null,  Color.WHITE,  Color.WHITE, null,  Color.WHITE,  Color.WHITE, null},
-			{ Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE},
-			{ Color.WHITE, null,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE,  Color.WHITE, null,  Color.WHITE},
-			{null, null, null,  Color.WHITE, null, null,  Color.WHITE, null, null, null},
-			{null, null,  Color.WHITE, null, null, null, null,  Color.WHITE, null, null}
-	};
+	static Color pixel_array[][] = Game.sprites();
 
 	public Enemy(int pos_x, int pos_y) {
 		super(pixel_array, pos_x, pos_y);

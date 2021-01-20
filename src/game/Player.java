@@ -15,12 +15,7 @@ public class Player extends Sprite implements KeyListener {
 	static final Color color = Color.WHITE;
 	Bullets bullets = new Bullets(bullet_speed);
 
-	static Color pixel_array[][] = {
-			{null, null, null, null, Color.WHITE, null, null, null, null},
-			{null, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE, null},
-			{null, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE, null},
-			{Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE}
-	};
+	static Color pixel_array[][] = Game.sprites();
 
 	public Player(int pos_x, int pos_y) {
 		super(pixel_array, pos_x, pos_y);
