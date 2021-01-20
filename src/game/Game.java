@@ -37,10 +37,8 @@ public class Game {
 	}
 
 	static Color[][] sprites(String name) {
-		System.out.println(name);
 		int width, height;
 		String file = "./res/" + name + ".xpm";
-		System.out.println("file");
 		Color sprite[][] = null;
 
 		BufferedReader reader;
@@ -60,8 +58,6 @@ public class Game {
 					if(c == '\n') {
 						c = reader.read();
 					}
-					System.out.print(c);
-					System.out.print(" ");
 					if(c == 'X') {
 						sprite[i][j] = Color.WHITE;
 					} else {
@@ -73,10 +69,10 @@ public class Game {
 
 			reader.close();
 		} catch (FileNotFoundException e) {
-			System.out.println("ERROR: file \"" + file + "\" not found");
+			System.err.println("ERROR: file \"" + file + "\" not found");
 			e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println("ERROR: IOException");
+			System.err.println("ERROR: IOException");
 			e.printStackTrace();
 		}
 
