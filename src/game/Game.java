@@ -88,7 +88,7 @@ public class Game {
 	ArrayList<Enemy> dead_enemies = new ArrayList<Enemy>();
 
     void detectCollisions() {
-		for(Bullet bullet: player.bullets.bullets) {
+		for(Bullet bullet: player.bullets) {
 			for(Enemy enemy: enemies.enemies) {
 				if(bullet.collision(enemy)) {
 					dead_bullets.add(bullet);
@@ -98,7 +98,7 @@ public class Game {
 		}
 
 		for(Bullet bullet: dead_bullets) {
-			player.bullets.bullets.remove(bullet);
+			player.bullets.remove(bullet);
 		}
 		for(Enemy enemy: dead_enemies) {
 			enemies.enemies.remove(enemy);
