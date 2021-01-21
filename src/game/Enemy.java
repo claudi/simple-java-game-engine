@@ -8,21 +8,14 @@ public class Enemy extends Sprite {
 	public static int height = 25;
 	static final Color color = Color.WHITE;
 
-	static boolean pixel_array[][] = {
-			{false, false,  true, false, false, false, false,  true, false, false},
-			{false, false, false,  true, false, false,  true, false, false, false},
-			{false, false,  true,  true,  true,  true,  true,  true, false, false},
-			{false,  true,  true, false,  true,  true, false,  true,  true, false},
-			{ true,  true,  true,  true,  true,  true,  true,  true,  true,  true},
-			{ true, false,  true,  true,  true,  true,  true,  true, false,  true},
-			{false, false, false,  true, false, false,  true, false, false, false},
-			{false, false,  true, false, false, false, false,  true, false, false}
-	};
+	static Color pixel_array[][] = Game.sprites("enemy");
 
 	public Enemy(int pos_x, int pos_y) {
-		super(pixel_array, pos_x, pos_y, color);
+		super(pixel_array, pos_x, pos_y);
 		this.pos_x = pos_x;
 		this.pos_y = pos_y;
 	    count++;
 	}
+
+	void endFrame() {}
 }
