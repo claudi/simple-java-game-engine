@@ -6,26 +6,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class Collection<E extends Sprite> implements List<E> {
+public abstract class Collection<E extends Sprite> implements List<E> {
 	List<E> elements = new ArrayList<E>();
 
-	void render(Graphics graphics) {
-		for(E element: elements) {
-			element.render(graphics);
-		}
-	}
+	abstract void render(Graphics graphics);
 
-	void move(int dx, int dy) {
-		for(E element: elements) {
-			element.move(dx, dy);
-		}
-	}
+	abstract void move();
 
-	void endFrame() {
-		for(E element: elements) {
-			element.endFrame();
-		}
-	}
+	abstract void endFrame();
 
 	public int size() {
 		return elements.size();
