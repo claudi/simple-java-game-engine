@@ -92,13 +92,17 @@ public class Game {
 		while(bullets_iterator.hasNext()) {
 			Bullet bullet = bullets_iterator.next();
 
-			enemies_iterator = enemies.iterator();
-			while(enemies_iterator.hasNext()) {
-				Enemy enemy = enemies_iterator.next();
+			if(bullet.outOfBounds()) {
+				bullets_iterator.remove();
+			} else {
+				enemies_iterator = enemies.iterator();
+				while(enemies_iterator.hasNext()) {
+					Enemy enemy = enemies_iterator.next();
 
-				if(bullet.collision(enemy)) {
-					bullets_iterator.remove();
-					enemies_iterator.remove();
+					if(bullet.collision(enemy)) {
+						bullets_iterator.remove();
+						enemies_iterator.remove();
+					}
 				}
 			}
 		}
