@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
 
-public class Sprite extends Entity {
+public abstract class Sprite extends Entity {
 	int height, width;
 	ArrayList<Pixel> pixels = new ArrayList<Pixel>();
 	
@@ -42,4 +42,6 @@ public class Sprite extends Entity {
 		}
 		return false;
 	}
+
+	abstract void endFrame();
 }
