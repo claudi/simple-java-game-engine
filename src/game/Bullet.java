@@ -4,8 +4,6 @@ import java.awt.Color;
 
 public class Bullet extends Sprite {
 	static int count = 0;
-    public static int width = 3;
-    public static int height = 12;
     static final Color color = Color.WHITE;
 
 	static Color pixel_array[][] = Game.sprites("bullet");
