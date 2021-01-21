@@ -21,6 +21,8 @@ public class Bullet extends Sprite {
         super.move(0, v);
     }
 
+    void endFrame() {}
+
     public boolean outOfBounds() {
     	if(pos_y <= 0) {
     		return true;

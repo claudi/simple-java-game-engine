@@ -1,34 +1,29 @@
 package game;
 
 import java.awt.Graphics;
-import java.util.ArrayList;
 
-public class Bullets {
-	ArrayList<Bullet> bullets = new ArrayList<Bullet>();
-	int count = 0;
+public class Bullets extends Collection<Bullet> {
 	int v;
 	
 	Bullets(int v) {
 		this.v = v;
 	}
 	
-	public boolean add(Bullet bullet) {
-		boolean result = bullets.add(bullet);
-		if(result) {
-			this.count++;
-		}
-		return result; 
-	}
-	
 	public void move() {
-		for(Bullet bullet: bullets) {
+		for(Bullet bullet: elements) {
 			bullet.move(v);
 		}
 	}
 	
 	public void render(Graphics graphics) {
-		for(Bullet bullet: bullets) {
+		for(Bullet bullet: elements) {
 			bullet.render(graphics);
+		}
+	}
+	
+	public void endFrame() {
+		for(Bullet bullet: elements) {
+			bullet.endFrame();
 		}
 	}
 }
