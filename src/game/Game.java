@@ -5,7 +5,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Game {
     Player player;
@@ -83,30 +83,30 @@ public class Game {
         player.move();
         enemies.move();
     }
-    
-	ArrayList<Bullet> dead_bullets = new ArrayList<Bullet>();
-	ArrayList<Enemy> dead_enemies = new ArrayList<Enemy>();
 
     void detectCollisions() {
-		for(Bullet bullet: player.bullets) {
-			for(Enemy enemy: enemies) {
-				if(bullet.collision(enemy)) {
-					dead_bullets.add(bullet);
-					dead_enemies.add(enemy);
+		Iterator<Bullet> bullets_iterator;
+		Iterator<Enemy> enemies_iterator;
+
+		bullets_iterator = player.bullets.iterator();
+		while(bullets_iterator.hasNext()) {
+			Bullet bullet = bullets_iterator.next();
+
+			if(bullet.outOfBounds()) {
+				bullets_iterator.remove();
+			} else {
+				enemies_iterator = enemies.iterator();
+				while(enemies_iterator.hasNext()) {
+					Enemy enemy = enemies_iterator.next();
+
+					if(bullet.collision(enemy)) {
+						bullets_iterator.remove();
+						enemies_iterator.remove();
+					}
 				}
 			}
 		}
-
-		for(Bullet bullet: dead_bullets) {
-			player.bullets.remove(bullet);
-		}
-		for(Enemy enemy: dead_enemies) {
-			enemies.remove(enemy);
-		}
-
-		dead_bullets.clear();
-		dead_enemies.clear();
-    }
+	}
 
     void render() {
         frame.render();

@@ -24,9 +24,9 @@ public class Bullet extends Sprite {
     void endFrame() {}
 
     public boolean outOfBounds() {
-    	if(pos_y <= 0) {
+    	if(pos_y + height <= 0 || pos_y >= GameFrame.HEIGHT) {
     		return true;
-    	}
+        }
     	return false;
     }
 }
