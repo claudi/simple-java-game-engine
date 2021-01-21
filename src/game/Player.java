@@ -37,6 +37,9 @@ public class Player extends Sprite implements KeyListener {
 	}
 
 	void endFrame() {
+		if(bullet_cooldown >= 5) {
+			bullets.add(new Bullet(pos_x, pos_y));
+		}
 		if(bullet_cooldown > 0) {
 			bullet_cooldown--;
 		}
@@ -69,8 +72,7 @@ public class Player extends Sprite implements KeyListener {
 	        v_r += v_increment;
 	    } else if(e.getKeyCode() == KeyEvent.VK_SPACE) {
 			if(bullet_cooldown == 0) {
-				bullet_cooldown += 5;
-				bullets.add(new Bullet(pos_x, pos_y));
+				bullet_cooldown = 5;
 			}
 	    }
 	}
