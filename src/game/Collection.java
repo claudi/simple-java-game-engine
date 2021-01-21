@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class Collection<E> implements List<E> {
+public class Collection<E extends Sprite> implements List<E> {
 	List<E> elements = new ArrayList<E>();
 	
 	public int size() {
