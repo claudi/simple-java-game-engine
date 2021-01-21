@@ -1,5 +1,6 @@
 package game;
 
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -7,7 +8,25 @@ import java.util.ListIterator;
 
 public class Collection<E extends Sprite> implements List<E> {
 	List<E> elements = new ArrayList<E>();
-	
+
+	void render(Graphics graphics) {
+		for(E element: elements) {
+			element.render(graphics);
+		}
+	}
+
+	void move(int dx, int dy) {
+		for(E element: elements) {
+			element.move(dx, dy);
+		}
+	}
+
+	void endFrame() {
+		for(E element: elements) {
+			element.endFrame();
+		}
+	}
+
 	public int size() {
 		return elements.size();
 	}
