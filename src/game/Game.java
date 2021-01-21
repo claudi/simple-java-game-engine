@@ -89,7 +89,7 @@ public class Game {
 
     void detectCollisions() {
 		for(Bullet bullet: player.bullets) {
-			for(Enemy enemy: enemies.enemies) {
+			for(Enemy enemy: enemies) {
 				if(bullet.collision(enemy)) {
 					dead_bullets.add(bullet);
 					dead_enemies.add(enemy);
@@ -101,7 +101,7 @@ public class Game {
 			player.bullets.remove(bullet);
 		}
 		for(Enemy enemy: dead_enemies) {
-			enemies.enemies.remove(enemy);
+			enemies.remove(enemy);
 		}
 
 		dead_bullets.clear();
