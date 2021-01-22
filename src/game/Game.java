@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class Game {
@@ -37,7 +38,7 @@ public class Game {
 	}
 
 	static Color[][] sprites(String name) {
-		int width, height;
+		int width, height, colours;
 		String file = "./res/" + name + ".xpm";
 		Color sprite[][] = null;
 
@@ -49,20 +50,25 @@ public class Game {
 			String dims[] = line.split(" ");
 			height = Integer.parseInt(dims[0]);
 			width = Integer.parseInt(dims[1]);
+			colours = Integer.parseInt(dims[2]);
 
 			sprite = new Color[height][width];
 
+			HashMap<Character,Color> colour = new HashMap<Character,Color>();
+			colour.put(' ', null);
+			for(int i = 0; i < colours; i++) {
+				String[] colour_line = reader.readLine().split(" ");
+				colour.put(colour_line[0].charAt(0), new Color(Integer.parseInt(colour_line[1]),
+															   Integer.parseInt(colour_line[2]),
+															   Integer.parseInt(colour_line[3])));
+			}
 			for(int i = 0; i < height; i++) {
 				for(int j = 0; j < width; j++) {
 					int c = reader.read();
 					if(c == '\n') {
 						c = reader.read();
 					}
-					if(c == 'X') {
-						sprite[i][j] = Color.WHITE;
-					} else {
-						sprite[i][j] = null;
-					}
+					sprite[i][j] = colour.get((char) c);
 				}
 				System.out.println("");
 			}
