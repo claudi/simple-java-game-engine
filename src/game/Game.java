@@ -114,10 +114,8 @@ public class Game {
 				if(player_bullet.collision(enemy_bullet)) {
 					bullets_iterator.remove();
 					enemies_bullets_iterator.remove();
-					
 				}
 			}
-			
 		}
 
 		enemies_bullets_iterator = enemies.bullets.iterator();
