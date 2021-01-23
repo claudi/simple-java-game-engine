@@ -102,7 +102,16 @@ public class Game {
 
     void detectCollisions() {
 		Iterator<Bullet> bullets_iterator;
+		Iterator<Bullet> enemies_bullets_iterator;
 		Iterator<Enemy> enemies_iterator;
+
+		enemies_bullets_iterator = enemies.bullets.iterator();
+		while(enemies_bullets_iterator.hasNext()) {
+			Bullet bullet = enemies_bullets_iterator.next();
+			if(bullet.outOfBounds()) {
+				enemies_bullets_iterator.remove();
+			}
+		}
 
 		bullets_iterator = player.bullets.iterator();
 		while(bullets_iterator.hasNext()) {

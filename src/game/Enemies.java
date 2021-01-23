@@ -7,6 +7,8 @@ public class Enemies extends Collection<Enemy> {
 	int pos_x = GameFrame.WIDTH/2, pos_y;
 	public int width, height;
 	int v = 3;
+	private int bullet_speed = 12;
+	Bullets bullets = new Bullets(bullet_speed);
 
 	Enemies(int n, int m) {
 	    this.n = n;
@@ -32,6 +34,8 @@ public class Enemies extends Collection<Enemy> {
 	}
 	
 	void move() {
+		bullets.move();
+
 		for(Enemy enemy: elements) {
 			if(enemy.pos_x - 3*enemy.width < 0 || enemy.pos_x + 3*enemy.width > GameFrame.WIDTH) {
 				v = -v;
@@ -45,13 +49,31 @@ public class Enemies extends Collection<Enemy> {
 	    pos_x += v;
 	}
 
+	private boolean isLastInColumn(Enemy enemy) {
+		for(Enemy other_enemy: elements) {
+			if(other_enemy.pos_x == enemy.pos_x) {
+				if(other_enemy.pos_y > enemy.pos_y) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
 	void endFrame() {
+		for(Enemy enemy: elements) {
+			if(isLastInColumn(enemy) && GameFrame.random.nextInt(50) == 0) {
+				bullets.add(new Bullet(enemy.pos_x, enemy.pos_y + enemy.height/2));
+			}
+		}
 		for(Enemy enemy: elements) {
 			enemy.endFrame();
 		}
+		System.out.println(bullets.size());
 	}
 
 	void render(Graphics graphics) {
+		bullets.render(graphics);
 	    for(Enemy enemy: elements) {
 	        enemy.render(graphics);
 	    }
