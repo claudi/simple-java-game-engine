@@ -21,7 +21,7 @@ public class Game {
     }
 
     void run() {
-        while(true) {
+        while(!gameOver()) {
             if(frame.active) {
                 makeMoves();
                 detectCollisions();
@@ -38,6 +38,13 @@ public class Game {
         player = new Player(GameFrame.WIDTH/2,
                             GameFrame.HEIGHT - 5*Player.height);
         enemies = new Enemies(5, 5);
+	}
+
+	boolean gameOver() {
+		if(enemies.size() == 0) {
+			return true;
+		}
+		return false;
 	}
 
 	static Color[][] sprites(String name) {
