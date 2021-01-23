@@ -41,7 +41,7 @@ public class Game {
 	}
 
 	boolean gameOver() {
-		if(enemies.size() == 0) {
+		if(enemies.size() == 0 || player.isDead()) {
 			return true;
 		}
 		return false;
@@ -110,6 +110,11 @@ public class Game {
 			Bullet bullet = enemies_bullets_iterator.next();
 			if(bullet.outOfBounds()) {
 				enemies_bullets_iterator.remove();
+			} else {
+				if(bullet.collision(player)) {
+					enemies_bullets_iterator.remove();
+					player.hit();
+				}
 			}
 		}
 
