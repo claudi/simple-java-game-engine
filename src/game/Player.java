@@ -14,7 +14,7 @@ public class Player extends Sprite implements KeyListener {
 	private int bullet_speed = -12;
 	static final Color color = Color.WHITE;
 	static int bullet_cooldown = 5;
-	int lives = 1;
+	private int lives = 1;
 	Bullets bullets = new Bullets(bullet_speed);
 
 	static Color pixel_array[][] = Game.sprites("player");
