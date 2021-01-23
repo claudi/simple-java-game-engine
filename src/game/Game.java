@@ -104,6 +104,21 @@ public class Game {
 		Iterator<Bullet> bullets_iterator;
 		Iterator<Bullet> enemies_bullets_iterator;
 		Iterator<Enemy> enemies_iterator;
+		
+		bullets_iterator = player.bullets.iterator();
+		while(bullets_iterator.hasNext()) {
+			Bullet player_bullet = bullets_iterator.next();
+			enemies_bullets_iterator = enemies.bullets.iterator();
+			while(enemies_bullets_iterator.hasNext()) {
+				Bullet enemy_bullet = enemies_bullets_iterator.next();
+				if(player_bullet.collision(enemy_bullet)) {
+					bullets_iterator.remove();
+					enemies_bullets_iterator.remove();
+					
+				}
+			}
+			
+		}
 
 		enemies_bullets_iterator = enemies.bullets.iterator();
 		while(enemies_bullets_iterator.hasNext()) {
