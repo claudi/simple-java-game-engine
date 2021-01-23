@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.Color;
+import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -29,6 +30,8 @@ public class Game {
             }
             delay();
         }
+
+        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));;
     }
 
 	void initEntities() {
