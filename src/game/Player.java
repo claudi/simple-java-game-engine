@@ -11,7 +11,7 @@ public class Player extends Sprite implements KeyListener {
 	static int v_increment = 10;
 	static int width = 30, height = 10;
 	private int bullet_cooldown_count = 0;
-	private int bullet_speed = -12;
+	private int bullet_speed = -30;
 	static final Color color = Color.WHITE;
 	static int bullet_cooldown = 5;
 	Bullets bullets = new Bullets(bullet_speed);
