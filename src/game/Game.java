@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.Color;
+import java.awt.event.WindowEvent;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -20,7 +21,7 @@ public class Game {
     }
 
     void run() {
-        while(true) {
+        while(!gameOver()) {
             if(frame.active) {
                 makeMoves();
                 detectCollisions();
@@ -29,12 +30,21 @@ public class Game {
             }
             delay();
         }
+
+        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));;
     }
 
 	void initEntities() {
         player = new Player(GameFrame.WIDTH/2,
                             GameFrame.HEIGHT - 5*Player.height);
         enemies = new Enemies(5, 5);
+	}
+
+	boolean gameOver() {
+		if(enemies.size() == 0 || player.isDead()) {
+			return true;
+		}
+		return false;
 	}
 
 	static Color[][] sprites(String name) {
@@ -92,7 +102,21 @@ public class Game {
 
     void detectCollisions() {
 		Iterator<Bullet> bullets_iterator;
+		Iterator<Bullet> enemies_bullets_iterator;
 		Iterator<Enemy> enemies_iterator;
+
+		enemies_bullets_iterator = enemies.bullets.iterator();
+		while(enemies_bullets_iterator.hasNext()) {
+			Bullet bullet = enemies_bullets_iterator.next();
+			if(bullet.outOfBounds()) {
+				enemies_bullets_iterator.remove();
+			} else {
+				if(bullet.collision(player)) {
+					enemies_bullets_iterator.remove();
+					player.hit();
+				}
+			}
+		}
 
 		bullets_iterator = player.bullets.iterator();
 		while(bullets_iterator.hasNext()) {
