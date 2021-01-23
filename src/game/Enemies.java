@@ -7,6 +7,8 @@ public class Enemies extends Collection<Enemy> {
 	int pos_x = GameFrame.WIDTH/2, pos_y;
 	public int width, height;
 	int v = 3;
+	private int bullet_speed = 12;
+	Bullets bullets = new Bullets(bullet_speed);
 
 	Enemies(int n, int m) {
 	    this.n = n;
