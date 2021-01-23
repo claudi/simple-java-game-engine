@@ -6,9 +6,11 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.Random;
 
 public class GameFrame extends Frame implements WindowListener {
 	private static final long serialVersionUID = 1L;
+	static Random random = new Random();
 	Game game;
 	Image image;
 	static int WIDTH = 1280, HEIGHT = 720;
