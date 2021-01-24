@@ -127,7 +127,6 @@ public class Game {
 			Bullet bullet = enemies_bullets_iterator.next();
 			if(bullet.outOfBounds()) {
 				enemies_bullets_iterator.remove();
-				score.missedBullet();
 			} else {
 				if(bullet.collision(player)) {
 					enemies_bullets_iterator.remove();
@@ -142,6 +141,7 @@ public class Game {
 
 			if(bullet.outOfBounds()) {
 				bullets_iterator.remove();
+				score.missedBullet();
 			} else {
 				enemies_iterator = enemies.iterator();
 				while(enemies_iterator.hasNext()) {
