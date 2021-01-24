@@ -2,7 +2,7 @@ package game;
 
 import java.awt.Color;
 
-public class Enemy extends Sprite {
+public class Enemy extends Entity {
 	static int count = 0;
 	static final Color color = Color.WHITE;
 
