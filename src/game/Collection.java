@@ -11,8 +11,6 @@ public abstract class Collection<E> implements List<E> {
 
 	abstract void render(Graphics graphics);
 
-	abstract void endFrame();
-
 	public int size() {
 		return elements.size();
 	}
