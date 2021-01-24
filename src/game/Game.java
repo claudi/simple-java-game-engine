@@ -115,6 +115,7 @@ public class Game {
 				if(player_bullet.collision(enemy_bullet)) {
 					bullets_iterator.remove();
 					enemies_bullets_iterator.remove();
+					score.hitBullet();
 					break;
 				}
 			}
@@ -125,6 +126,7 @@ public class Game {
 			Bullet bullet = enemies_bullets_iterator.next();
 			if(bullet.outOfBounds()) {
 				enemies_bullets_iterator.remove();
+				score.missedBullet();
 			} else {
 				if(bullet.collision(player)) {
 					enemies_bullets_iterator.remove();
@@ -147,6 +149,7 @@ public class Game {
 					if(bullet.collision(enemy)) {
 						bullets_iterator.remove();
 						enemies_iterator.remove();
+						score.hitEnemy();
 					}
 				}
 			}
