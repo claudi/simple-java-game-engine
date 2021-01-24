@@ -17,6 +17,7 @@ public class Game {
 
     Game(GameFrame frame) {
         this.frame = frame;
+        this.score = new Score();
 
         initEntities();
     }
@@ -160,6 +161,7 @@ public class Game {
         frame.render();
         player.render(frame.graphics);
         enemies.render(frame.graphics);
+        score.render(frame.graphics);
         frame.repaint();
     }
 

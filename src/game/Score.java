@@ -1,5 +1,7 @@
 package game;
 
+import java.awt.Graphics;
+
 public class Score {
 	int enemies_hit;
 	int bullets_hit;
@@ -25,5 +27,12 @@ public class Score {
 
 	public void missedBullet() {
 		bullets_missed++;
+	}
+
+	public void render(Graphics graphics) {
+		System.out.println("Enemies killed: " + String.valueOf(enemies_hit));
+		System.out.println("Bullets hit: " + String.valueOf(bullets_hit));
+		System.out.println("Bullets missed: " + String.valueOf(bullets_missed));
+		System.out.println("Bullets intercepted: " + String.valueOf(bullets_intercepted));
 	}
 }
