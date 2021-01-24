@@ -1,6 +1,7 @@
 package game;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -17,6 +18,7 @@ public class GameFrame extends Frame implements WindowListener {
 	Graphics graphics;
 	Boolean active = false;
 	public static Boolean printGrid = false; // DEBUG
+	static Font font;
 
 	public static void main(String [] args) {
 	    new GameFrame();
@@ -30,6 +32,7 @@ public class GameFrame extends Frame implements WindowListener {
 
 	    image = createImage(WIDTH, HEIGHT);
 	    graphics = image.getGraphics();
+	    font  = new Font(Font.SANS_SERIF, Font.BOLD, 24);
 
 	    game = new Game(this);
 	    this.addKeyListener(game.player);
