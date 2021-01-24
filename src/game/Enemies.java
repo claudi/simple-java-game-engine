@@ -69,7 +69,6 @@ public class Enemies extends Collection<Enemy> {
 		for(Enemy enemy: elements) {
 			enemy.endFrame();
 		}
-		System.out.println(bullets.size());
 	}
 
 	void render(Graphics graphics) {
