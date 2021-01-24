@@ -3,7 +3,8 @@ package game;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Pixel extends Entity {
+public class Pixel {
+	int pos_x, pos_y;
 	final static int width = 5, height = 5;
 	private Color color;
 	
@@ -24,15 +25,24 @@ public class Pixel extends Entity {
 	}
 
 	boolean collision(Entity entity) {
-		boolean leftLTright = this.pos_x - width/2 <= entity.pos_x + width/2;
-		boolean rightGTleft = this.pos_x + width/2 >= entity.pos_x - width/2;
-		boolean topLTbottom = this.pos_y <= entity.pos_y + height;
-		boolean bottolGTtop = this.pos_y + height >= entity.pos_y;
+		for(Pixel pixel: entity.elements) {
+			if(collision(pixel)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	boolean collision(Pixel pixel) {
+		boolean leftLTright = this.pos_x - width/2 <= pixel.pos_x + width/2;
+		boolean rightGTleft = this.pos_x + width/2 >= pixel.pos_x - width/2;
+		boolean topLTbottom = this.pos_y <= pixel.pos_y + height;
+		boolean bottolGTtop = this.pos_y + height >= pixel.pos_y;
 
 		if(leftLTright && rightGTleft && topLTbottom && bottolGTtop) {
 			return true;
 		}
 		return false;
 	}
-	
+
 }

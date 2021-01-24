@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Player extends Sprite implements KeyListener {
+public class Player extends Entity implements KeyListener {
 	boolean vb_l = false, vb_r = false;
 	int v_l = 0, v_r = 0;
 	static int v_increment = 10;
