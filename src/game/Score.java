@@ -4,13 +4,13 @@ public class Score {
 	int enemies_hit;
 	int bullets_hit;
 	int bullets_missed;
-	int bullets_itercepted;
+	int bullets_intercepted;
 
 	public Score() {
 		enemies_hit = 0;
 		bullets_hit = 0;
 		bullets_missed = 0;
-		bullets_itercepted = 0;
+		bullets_intercepted = 0;
 	}
 
 	public void hitEnemy() {
@@ -20,7 +20,7 @@ public class Score {
 
 	public void hitBullet() {
 		bullets_hit++;
-		bullets_itercepted++;
+		bullets_intercepted++;
 	}
 
 	public void missedBullet() {
