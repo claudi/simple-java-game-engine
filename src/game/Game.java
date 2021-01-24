@@ -13,9 +13,11 @@ public class Game {
     Player player;
     GameFrame frame;
     Enemies enemies;
+    Score score;
 
     Game(GameFrame frame) {
         this.frame = frame;
+        this.score = new Score();
 
         initEntities();
     }
@@ -114,6 +116,7 @@ public class Game {
 				if(player_bullet.collision(enemy_bullet)) {
 					bullets_iterator.remove();
 					enemies_bullets_iterator.remove();
+					score.hitBullet();
 					break;
 				}
 			}
@@ -138,6 +141,7 @@ public class Game {
 
 			if(bullet.outOfBounds()) {
 				bullets_iterator.remove();
+				score.missedBullet();
 			} else {
 				enemies_iterator = enemies.iterator();
 				while(enemies_iterator.hasNext()) {
@@ -146,6 +150,7 @@ public class Game {
 					if(bullet.collision(enemy)) {
 						bullets_iterator.remove();
 						enemies_iterator.remove();
+						score.hitEnemy();
 					}
 				}
 			}
@@ -156,6 +161,7 @@ public class Game {
         frame.render();
         player.render(frame.graphics);
         enemies.render(frame.graphics);
+        score.render(frame.graphics);
         frame.repaint();
     }
 
