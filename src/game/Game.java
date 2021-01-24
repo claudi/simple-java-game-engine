@@ -13,6 +13,7 @@ public class Game {
     Player player;
     GameFrame frame;
     Enemies enemies;
+    Score score;
 
     Game(GameFrame frame) {
         this.frame = frame;
