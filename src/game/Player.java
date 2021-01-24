@@ -14,15 +14,20 @@ public class Player extends Entity implements KeyListener {
 	private int bullet_speed = -30;
 	static final Color color = Color.WHITE;
 	static int bullet_cooldown = 5;
-	private int lives = 1;
+	private int nlives = 3;
+	Sprite[] lives = new Sprite[nlives];
 	Bullets bullets = new Bullets(bullet_speed);
 
 	static Color pixel_array[][] = Game.sprites("player");
+	static Color lives_array[][] = Game.sprites("player_lives");
 
 	public Player(int pos_x, int pos_y) {
 		super(pixel_array, pos_x, pos_y);
 		this.pos_x = pos_x;
 		this.pos_y = pos_y;
+		for(int i = 0; i < lives.length; i++) {
+			lives[i] = new Sprite(lives_array, Pixel.width*(10 + (lives_array[0].length + 5)*i), GameFrame.HEIGHT - Pixel.height*10);
+		}
 	}
 
 	void move() {
@@ -45,16 +50,19 @@ public class Player extends Entity implements KeyListener {
 	}
 
 	void hit() {
-		lives--;
+		nlives--;
 	}
 
 	public boolean isDead() {
-		return lives == 0;
+		return nlives == 0;
 	}
 
 	void render(Graphics graphics) {
 	    super.render(graphics);
 	    bullets.render(graphics);
+	    for(int i = 0; i < nlives; i++) {
+	    	lives[i].render(graphics);
+	    }
 	}
 
 	public void keyTyped(KeyEvent e) {}
