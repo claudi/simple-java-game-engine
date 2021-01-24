@@ -6,12 +6,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public abstract class Collection<E extends Sprite> implements List<E> {
+public abstract class Collection<E> implements List<E> {
 	List<E> elements = new ArrayList<E>();
 
 	abstract void render(Graphics graphics);
-
-	abstract void move();
 
 	abstract void endFrame();
 
