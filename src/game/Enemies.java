@@ -37,7 +37,7 @@ public class Enemies extends Collection<Enemy> {
 		bullets.move();
 
 		for(Enemy enemy: elements) {
-			if(enemy.pos_x - 3*enemy.width < 0 || enemy.pos_x + 3*enemy.width > GameFrame.WIDTH) {
+			if(enemy.pos_x - 4*enemy.width < 0 || enemy.pos_x + 4*enemy.width > GameFrame.WIDTH) {
 				v = -v;
 				break;
 			}
