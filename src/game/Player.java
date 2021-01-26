@@ -31,10 +31,10 @@ public class Player extends Entity implements KeyListener {
 	}
 
 	void move() {
-	    if(pos_x < 0.90*GameFrame.WIDTH) {
+	    if(pos_x < 0.80*GameFrame.WIDTH) {
 	        super.move(v_r, 0);
 	    }
-	    if(pos_x > 0.10*GameFrame.WIDTH) {
+	    if(pos_x > 0.20*GameFrame.WIDTH) {
 	        super.move(v_l, 0);
 	    }
 	    bullets.move();
