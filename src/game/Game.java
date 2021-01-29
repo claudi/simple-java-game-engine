@@ -33,6 +33,14 @@ public class Game {
             delay();
         }
 
+        if(player.isAlive()) {
+            System.out.println("Player win");
+        } else if(enemies.size() > 0) {
+            System.out.println("Enemies win");
+        } else {
+            System.out.println("Tie");
+        }
+
         frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));;
     }
 
@@ -43,7 +51,7 @@ public class Game {
 	}
 
 	boolean gameOver() {
-		if(enemies.size() == 0 || player.isDead()) {
+		if((enemies.bullets.size() == 0 && enemies.size() == 0) || player.isDead()) {
 			return true;
 		}
 		return false;

@@ -57,6 +57,10 @@ public class Player extends Entity implements KeyListener {
 		return nlives == 0;
 	}
 
+	public boolean isAlive() {
+		return !isDead();
+	}
+
 	void render(Graphics graphics) {
 	    super.render(graphics);
 	    bullets.render(graphics);
