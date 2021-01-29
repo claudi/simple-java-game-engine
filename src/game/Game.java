@@ -33,6 +33,14 @@ public class Game {
             delay();
         }
 
+        if(player.isAlive()) {
+            System.out.println("Player win");
+        } else if(enemies.size() > 0) {
+            System.out.println("Enemies win");
+        } else {
+            System.out.println("Tie");
+        }
+
         frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));;
     }
 
