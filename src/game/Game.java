@@ -43,7 +43,7 @@ public class Game {
 	}
 
 	boolean gameOver() {
-		if(enemies.size() == 0 || player.isDead()) {
+		if((enemies.bullets.size() == 0 && enemies.size() == 0) || player.isDead()) {
 			return true;
 		}
 		return false;
