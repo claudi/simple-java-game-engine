@@ -43,7 +43,7 @@ public class Game {
             System.out.println("Tie");
         }
 
-        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));;
+        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
     }
 
 	void initEntities() {
