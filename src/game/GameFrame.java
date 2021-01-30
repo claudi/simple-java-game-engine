@@ -25,6 +25,8 @@ public class GameFrame extends Frame implements WindowListener {
 	}
 
 	GameFrame() {
+		super("Space Invaders");
+
 	    setSize(WIDTH, HEIGHT);
 	    setVisible(true);
 	    setResizable(false);
