@@ -70,7 +70,7 @@ public class Player extends Entity implements KeyListener {
 	}
 
 	public void keyTyped(KeyEvent e) {}
-	
+
 	public void keyReleased(KeyEvent e) {
 	    if(e.getKeyCode() == KeyEvent.VK_A) {
 	        vb_l = false;

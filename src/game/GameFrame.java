@@ -40,7 +40,7 @@ public class GameFrame extends Frame implements WindowListener {
 	    this.addKeyListener(game.player);
 	    game.run();
 	}
-	
+
 	void render() {
 	    graphics.setColor(Color.BLACK);
 	    graphics.fillRect(0, 0, WIDTH, HEIGHT);

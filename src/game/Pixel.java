@@ -7,13 +7,13 @@ public class Pixel {
 	int pos_x, pos_y;
 	final static int width = 5, height = 5;
 	private Color color;
-	
+
 	public Pixel(int pos_x, int pos_y, Color color) {
 		this.pos_x = pos_x;
 		this.pos_y = pos_y;
 		this.color = color;
 	}
-	
+
 	void render(Graphics graphics) {
 		graphics.setColor(color);
 		graphics.fillRect(pos_x, pos_y, width, height);

@@ -66,7 +66,7 @@ public class Game {
 		try {
 			reader = new BufferedReader(new FileReader(file));
 			String line = reader.readLine();
-			
+
 			String dims[] = line.split(" ");
 			height = Integer.parseInt(dims[0]);
 			width = Integer.parseInt(dims[1]);
@@ -114,7 +114,7 @@ public class Game {
 		Iterator<Bullet> bullets_iterator;
 		Iterator<Bullet> enemies_bullets_iterator;
 		Iterator<Enemy> enemies_iterator;
-		
+
 		bullets_iterator = player.bullets.iterator();
 		while(bullets_iterator.hasNext()) {
 			Bullet player_bullet = bullets_iterator.next();

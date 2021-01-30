@@ -32,7 +32,7 @@ public class Enemies extends Collection<Enemy> {
 	        }
 	    }
 	}
-	
+
 	void move() {
 		bullets.move();
 
