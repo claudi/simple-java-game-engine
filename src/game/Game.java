@@ -23,6 +23,8 @@ public class Game {
     }
 
     void run() {
+        frame.addKeyListener(player);
+
         while(!gameOver()) {
             if(frame.active) {
                 makeMoves();

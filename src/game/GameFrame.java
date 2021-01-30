@@ -37,7 +37,6 @@ public class GameFrame extends Frame implements WindowListener {
 	    font  = new Font(Font.SANS_SERIF, Font.BOLD, 24);
 
 	    game = new Game(this);
-	    this.addKeyListener(game.player);
 	    game.run();
 	}
 
