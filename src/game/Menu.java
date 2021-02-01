@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowEvent;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
@@ -72,7 +73,18 @@ public class Menu implements KeyListener {
 				}
 				break;
 			case KeyEvent.VK_ENTER:
-				inMenu = false;
+				switch(cursor.command) {
+					case NEW_GAME:
+						inMenu = false;
+						break;
+					case EXIT:
+						game.frame.dispatchEvent(new WindowEvent(game.frame, WindowEvent.WINDOW_CLOSING));
+						break;
+				case LEADERBOARD:
+					break;
+				case LOAD_GAME:
+					break;
+				}
 				break;
 		}
 	}
