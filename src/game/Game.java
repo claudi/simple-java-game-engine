@@ -14,15 +14,28 @@ public class Game {
     GameFrame frame;
     Enemies enemies;
     Score score;
+    Menu menu;
 
     Game(GameFrame frame) {
         this.frame = frame;
         this.score = new Score();
+        this.menu = new Menu(this);
 
         initEntities();
     }
 
     void run() {
+        frame.addKeyListener(menu);
+
+        while(menu.inMenu()) {
+        	frame.render();
+        	menu.render(frame.graphics);
+        	frame.repaint();
+        	delay();
+        }
+
+        frame.removeKeyListener(menu);
+        frame.addKeyListener(player);
         while(!gameOver()) {
             if(frame.active) {
                 makeMoves();
@@ -41,7 +54,7 @@ public class Game {
             System.out.println("Tie");
         }
 
-        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));;
+        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
     }
 
 	void initEntities() {

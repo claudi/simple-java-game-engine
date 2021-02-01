@@ -19,6 +19,7 @@ public class GameFrame extends Frame implements WindowListener {
 	Boolean active = false;
 	public static Boolean printGrid = false; // DEBUG
 	static Font font;
+	static Font menu_font;
 
 	public static void main(String [] args) {
 	    new GameFrame();
@@ -34,10 +35,10 @@ public class GameFrame extends Frame implements WindowListener {
 
 	    image = createImage(WIDTH, HEIGHT);
 	    graphics = image.getGraphics();
-	    font  = new Font(Font.SANS_SERIF, Font.BOLD, 24);
+	    font  = new Font("Arial", Font.PLAIN, 24);
+	    menu_font = new Font("Arial", Font.BOLD, 58);
 
 	    game = new Game(this);
-	    this.addKeyListener(game.player);
 	    game.run();
 	}
 
