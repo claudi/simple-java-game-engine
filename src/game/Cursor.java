@@ -7,6 +7,7 @@ public class Cursor {
 	private int pos_x, pos_y;
 	private int width, height;
 	private String label;
+	MenuCommand command;
 
 	public Cursor(int pos_x, int pos_y, Graphics graphics) {
 		this.label = ">";
@@ -19,6 +20,7 @@ public class Cursor {
 	
 	void setPos(Button button) {
 		setPos(button.getPosX(), button.getPosY());
+		this.command = button.getCommand();
 	}
 
 	void setPos(int pos_x, int pos_y) {
