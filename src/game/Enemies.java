@@ -63,7 +63,7 @@ public class Enemies extends Collection<Enemy> {
 	void endFrame() {
 		for(Enemy enemy: elements) {
 			if(isLastInColumn(enemy) && GameFrame.random.nextInt(5 + elements.size()) == 0) {
-				bullets.add(new Bullet(enemy.pos_x, enemy.pos_y + enemy.height/2));
+				bullets.add(enemy.shoot());
 			}
 		}
 		for(Enemy enemy: elements) {

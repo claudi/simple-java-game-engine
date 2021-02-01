@@ -15,5 +15,10 @@ public class Enemy extends Entity {
 	    count++;
 	}
 
+	Bullet shoot() {
+		// TODO: Sound
+		return new Bullet(pos_x, pos_y + height/2);
+	}
+
 	void endFrame() {}
 }
