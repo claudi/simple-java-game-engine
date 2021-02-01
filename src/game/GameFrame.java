@@ -35,8 +35,8 @@ public class GameFrame extends Frame implements WindowListener {
 
 	    image = createImage(WIDTH, HEIGHT);
 	    graphics = image.getGraphics();
-	    font  = new Font(Font.MONOSPACED, Font.PLAIN, 24);
-	    menu_font = new Font(Font.MONOSPACED, Font.BOLD, 58);
+	    font  = new Font("Arial", Font.PLAIN, 24);
+	    menu_font = new Font("Arial", Font.BOLD, 58);
 
 	    game = new Game(this);
 	    game.run();
