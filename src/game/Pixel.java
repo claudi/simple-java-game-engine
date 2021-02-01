@@ -16,7 +16,7 @@ public class Pixel {
 
 	void render(Graphics graphics) {
 		graphics.setColor(color);
-		graphics.fillRect(pos_x, pos_y, width, height);
+		graphics.fillRect(pos_x - width/2, pos_y - height/2, width, height);
 	}
 
 	void move(int dx, int dy) {
