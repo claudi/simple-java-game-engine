@@ -2,7 +2,6 @@ package game;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 
 public class Score {
 	int enemies_hit;
@@ -32,9 +31,8 @@ public class Score {
 	}
 
 	public void render(Graphics graphics) {
-		Graphics2D g2 = (Graphics2D) graphics;
-		g2.setColor(Color.WHITE);
-		g2.setFont(GameFrame.font);
-		g2.drawString("SCORE: " + String.valueOf(enemies_hit + bullets_hit + bullets_intercepted), 10, 40);
+		graphics.setColor(Color.WHITE);
+		graphics.setFont(GameFrame.font);
+		graphics.drawString("SCORE: " + String.valueOf(enemies_hit + bullets_hit + bullets_intercepted), 10, 40);
 	}
 }
