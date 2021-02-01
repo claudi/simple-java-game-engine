@@ -7,6 +7,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.awt.image.BufferedImage;
 import java.util.Random;
 
 public class GameFrame extends Frame implements WindowListener {
@@ -14,6 +15,7 @@ public class GameFrame extends Frame implements WindowListener {
 	static Random random = new Random();
 	Game game;
 	Image image;
+	BufferedImage background;
 	static int WIDTH = 1280, HEIGHT = 720;
 	Graphics graphics;
 	Boolean active = false;
@@ -34,6 +36,16 @@ public class GameFrame extends Frame implements WindowListener {
 	    addWindowListener(this);
 
 	    image = createImage(WIDTH, HEIGHT);
+	    background = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_3BYTE_BGR);
+	    for(int i = 0; i < WIDTH; i++) {
+	    	for(int j = 0; j < HEIGHT; j++) {
+	    		if(random.nextInt(500) == 0) {
+	    			background.setRGB(i, j, Color.WHITE.getRGB());
+	    		} else {
+	    			background.setRGB(i, j, Color.BLACK.getRGB());
+	    		}
+	    	}
+	    }
 	    graphics = image.getGraphics();
 	    font  = new Font("Arial", Font.PLAIN, 24);
 	    menu_font = new Font("Arial", Font.BOLD, 58);
@@ -45,6 +57,7 @@ public class GameFrame extends Frame implements WindowListener {
 	void render() {
 	    graphics.setColor(Color.BLACK);
 	    graphics.fillRect(0, 0, WIDTH, HEIGHT);
+	    graphics.drawImage(background, 0, 0, null);
 	    if(printGrid) { // DEBUG
 	        graphics.setColor(Color.DARK_GRAY);
 	        for(int i = 0; i < WIDTH; i += 5) {
