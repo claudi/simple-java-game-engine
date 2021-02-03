@@ -103,7 +103,6 @@ public class Game {
 					}
 					sprite[i][j] = colour.get((char) c);
 				}
-				System.out.println("");
 			}
 
 			reader.close();
