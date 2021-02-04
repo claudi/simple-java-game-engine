@@ -11,8 +11,8 @@ public class Sound {
 	
 	public Sound(String name) {
 		try {
-	         File url = new File("res/" + name + ".wav");
-	         AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(url);
+	         File file = new File("res/" + name + ".wav");
+	         AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
 	         clip = AudioSystem.getClip();
 	         clip.open(audioInputStream);
 	      } catch (Exception e) {
