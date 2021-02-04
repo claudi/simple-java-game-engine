@@ -15,6 +15,8 @@ public class Sound {
 	         AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
 	         clip = AudioSystem.getClip();
 	         clip.open(audioInputStream);
+	         clip.start();
+	         clip.stop();
 	      } catch (Exception e) {
 	         e.printStackTrace();
 	      }
