@@ -18,6 +18,7 @@ public class Player extends Entity implements KeyListener {
 	Sprite[] lives = new Sprite[nlives];
 	Bullets bullets = new Bullets(bullet_speed);
 	Sound player_shooting;
+	Sound player_hit;
 
 	static Color pixel_array[][] = Game.sprites("player");
 	static Color lives_array[][] = Game.sprites("player_lives");
@@ -30,6 +31,7 @@ public class Player extends Entity implements KeyListener {
 			lives[i] = new Sprite(lives_array, Pixel.width*(10 + (lives_array[0].length + 5)*i), GameFrame.HEIGHT - Pixel.height*10);
 		}
 		player_shooting = new Sound("player_shooting");
+		player_hit = new Sound("player_hit");
 	}
 
 	void move() {
@@ -54,6 +56,7 @@ public class Player extends Entity implements KeyListener {
 
 	void hit() {
 		nlives--;
+		player_hit.play();
 	}
 
 	public boolean isDead() {
