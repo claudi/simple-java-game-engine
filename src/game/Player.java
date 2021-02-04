@@ -28,8 +28,9 @@ public class Player extends Entity implements KeyListener {
 		super(pixel_array, pos_x, pos_y);
 		this.pos_x = pos_x;
 		this.pos_y = pos_y;
-		for(int i = 0; i < lives.length; i++) {
-			lives[i] = new Sprite(lives_array, Pixel.width*(10 + (lives_array[0].length + 5)*i), GameFrame.HEIGHT - Pixel.height*10);
+		for (int i = 0; i < lives.length; i++) {
+			lives[i] = new Sprite(lives_array, Pixel.width * (10 + (lives_array[0].length + 5) * i),
+					GameFrame.HEIGHT - Pixel.height * 10);
 		}
 		player_shooting = new Sound("player_shooting");
 		player_hit = new Sound("player_hit");
@@ -37,28 +38,28 @@ public class Player extends Entity implements KeyListener {
 	}
 
 	void move() {
-	    if(pos_x < 0.80*GameFrame.WIDTH) {
-	        super.move(v_r, 0);
-	    }
-	    if(pos_x > 0.20*GameFrame.WIDTH) {
-	        super.move(v_l, 0);
-	    }
-	    bullets.move();
+		if (pos_x < 0.80 * GameFrame.WIDTH) {
+			super.move(v_r, 0);
+		}
+		if (pos_x > 0.20 * GameFrame.WIDTH) {
+			super.move(v_l, 0);
+		}
+		bullets.move();
 	}
 
 	void endFrame() {
-		if(bullet_cooldown_count >= bullet_cooldown) {
+		if (bullet_cooldown_count >= bullet_cooldown) {
 			player_shooting.play();
 			bullets.add(new Bullet(pos_x, pos_y));
 		}
-		if(bullet_cooldown_count > 0) {
+		if (bullet_cooldown_count > 0) {
 			bullet_cooldown_count--;
 		}
 	}
 
 	void hit() {
 		nlives--;
-		if(nlives == 0) {
+		if (nlives == 0) {
 			player_death.play();
 		} else {
 			player_hit.play();
@@ -74,36 +75,37 @@ public class Player extends Entity implements KeyListener {
 	}
 
 	void render(Graphics graphics) {
-	    super.render(graphics);
-	    bullets.render(graphics);
-	    for(int i = 0; i < nlives; i++) {
-	    	lives[i].render(graphics);
-	    }
+		super.render(graphics);
+		bullets.render(graphics);
+		for (int i = 0; i < nlives; i++) {
+			lives[i].render(graphics);
+		}
 	}
 
-	public void keyTyped(KeyEvent e) {}
+	public void keyTyped(KeyEvent e) {
+	}
 
 	public void keyReleased(KeyEvent e) {
-	    if(e.getKeyCode() == KeyEvent.VK_A) {
-	        vb_l = false;
-	        v_l -= -v_increment;
-	    } else if(e.getKeyCode() == KeyEvent.VK_D) {
-	        vb_r = false;
-	        v_r -= v_increment;
-	    }
+		if (e.getKeyCode() == KeyEvent.VK_A) {
+			vb_l = false;
+			v_l -= -v_increment;
+		} else if (e.getKeyCode() == KeyEvent.VK_D) {
+			vb_r = false;
+			v_r -= v_increment;
+		}
 	}
 
 	public void keyPressed(KeyEvent e) {
-	    if(!vb_l && (e.getKeyCode() == KeyEvent.VK_A)) {
-	        vb_l = true;
-	        v_l += -v_increment;
-	    } else if(!vb_r && (e.getKeyCode() == KeyEvent.VK_D)) {
-	        vb_r = true;
-	        v_r += v_increment;
-	    } else if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-			if(bullet_cooldown_count == 0) {
+		if (!vb_l && (e.getKeyCode() == KeyEvent.VK_A)) {
+			vb_l = true;
+			v_l += -v_increment;
+		} else if (!vb_r && (e.getKeyCode() == KeyEvent.VK_D)) {
+			vb_r = true;
+			v_r += v_increment;
+		} else if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			if (bullet_cooldown_count == 0) {
 				bullet_cooldown_count = bullet_cooldown;
 			}
-	    }
+		}
 	}
 }

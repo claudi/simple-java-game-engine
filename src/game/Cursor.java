@@ -13,21 +13,20 @@ public class Cursor {
 		this.label = ">";
 		this.height = graphics.getFontMetrics(GameFrame.menu_font).getAscent();
 		this.width = graphics.getFontMetrics(GameFrame.menu_font).stringWidth(label);
-		this.pos_x = GameFrame.WIDTH/2 - width/2;
+		this.pos_x = GameFrame.WIDTH / 2 - width / 2;
 		this.pos_y = pos_y;
 	}
 
-	
 	void setPos(Button button) {
 		setPos(button.getPosX(), button.getPosY());
 		this.command = button.getCommand();
 	}
 
 	void setPos(int pos_x, int pos_y) {
-		this.pos_x = pos_x - 2*width;
-		this.pos_y = pos_y - height/4;
+		this.pos_x = pos_x - 2 * width;
+		this.pos_y = pos_y - height / 4;
 	}
-	
+
 	void render(Graphics graphics) {
 		graphics.setColor(Color.WHITE);
 		graphics.setFont(GameFrame.menu_font);

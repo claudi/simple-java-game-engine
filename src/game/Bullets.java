@@ -10,19 +10,19 @@ public class Bullets extends Collection<Bullet> {
 	}
 
 	public void move() {
-		for(Bullet bullet: elements) {
+		for (Bullet bullet : elements) {
 			bullet.move(v);
 		}
 	}
 
 	public void render(Graphics graphics) {
-		for(Bullet bullet: elements) {
+		for (Bullet bullet : elements) {
 			bullet.render(graphics);
 		}
 	}
 
 	public void endFrame() {
-		for(Bullet bullet: elements) {
+		for (Bullet bullet : elements) {
 			bullet.endFrame();
 		}
 	}

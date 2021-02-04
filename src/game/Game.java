@@ -10,61 +10,60 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 public class Game {
-    Player player;
-    GameFrame frame;
-    Enemies enemies;
-    Score score;
-    Menu menu;
+	Player player;
+	GameFrame frame;
+	Enemies enemies;
+	Score score;
+	Menu menu;
 
-    Game(GameFrame frame) {
-        this.frame = frame;
-        this.score = new Score();
-        this.menu = new Menu(this);
+	Game(GameFrame frame) {
+		this.frame = frame;
+		this.score = new Score();
+		this.menu = new Menu(this);
 
-        initEntities();
-    }
+		initEntities();
+	}
 
-    void run() {
-        frame.addKeyListener(menu);
+	void run() {
+		frame.addKeyListener(menu);
 
-        while(menu.inMenu()) {
-        	frame.render();
-        	menu.render(frame.graphics);
-        	frame.repaint();
-        	delay();
-        }
+		while (menu.inMenu()) {
+			frame.render();
+			menu.render(frame.graphics);
+			frame.repaint();
+			delay();
+		}
 
-        frame.removeKeyListener(menu);
-        frame.addKeyListener(player);
-        while(!gameOver()) {
-            if(frame.active) {
-                makeMoves();
-                detectCollisions();
-                render();
-                endFrame();
-            }
-            delay();
-        }
+		frame.removeKeyListener(menu);
+		frame.addKeyListener(player);
+		while (!gameOver()) {
+			if (frame.active) {
+				makeMoves();
+				detectCollisions();
+				render();
+				endFrame();
+			}
+			delay();
+		}
 
-        if(player.isAlive()) {
-            System.out.println("Player win");
-        } else if(enemies.size() > 0) {
-            System.out.println("Enemies win");
-        } else {
-            System.out.println("Tie");
-        }
+		if (player.isAlive()) {
+			System.out.println("Player win");
+		} else if (enemies.size() > 0) {
+			System.out.println("Enemies win");
+		} else {
+			System.out.println("Tie");
+		}
 
-        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-    }
+		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+	}
 
 	void initEntities() {
-        player = new Player(GameFrame.WIDTH/2,
-                            GameFrame.HEIGHT - 8*Player.height);
-        enemies = new Enemies(5, 5);
+		player = new Player(GameFrame.WIDTH / 2, GameFrame.HEIGHT - 8 * Player.height);
+		enemies = new Enemies(5, 5);
 	}
 
 	boolean gameOver() {
-		if((enemies.bullets.size() == 0 && enemies.size() == 0) || player.isDead()) {
+		if ((enemies.bullets.size() == 0 && enemies.size() == 0) || player.isDead()) {
 			return true;
 		}
 		return false;
@@ -87,18 +86,17 @@ public class Game {
 
 			sprite = new Color[height][width];
 
-			HashMap<Character,Color> colour = new HashMap<Character,Color>();
+			HashMap<Character, Color> colour = new HashMap<Character, Color>();
 			colour.put(' ', null);
-			for(int i = 0; i < colours; i++) {
+			for (int i = 0; i < colours; i++) {
 				String[] colour_line = reader.readLine().split(" ");
 				colour.put(colour_line[0].charAt(0), new Color(Integer.parseInt(colour_line[1]),
-															   Integer.parseInt(colour_line[2]),
-															   Integer.parseInt(colour_line[3])));
+						Integer.parseInt(colour_line[2]), Integer.parseInt(colour_line[3])));
 			}
-			for(int i = 0; i < height; i++) {
-				for(int j = 0; j < width; j++) {
+			for (int i = 0; i < height; i++) {
+				for (int j = 0; j < width; j++) {
 					int c = reader.read();
-					if(c == '\n') {
+					if (c == '\n') {
 						c = reader.read();
 					}
 					sprite[i][j] = colour.get((char) c);
@@ -117,23 +115,23 @@ public class Game {
 		return sprite;
 	}
 
-    void makeMoves() {
-        player.move();
-        enemies.move();
-    }
+	void makeMoves() {
+		player.move();
+		enemies.move();
+	}
 
-    void detectCollisions() {
+	void detectCollisions() {
 		Iterator<Bullet> bullets_iterator;
 		Iterator<Bullet> enemies_bullets_iterator;
 		Iterator<Enemy> enemies_iterator;
 
 		bullets_iterator = player.bullets.iterator();
-		while(bullets_iterator.hasNext()) {
+		while (bullets_iterator.hasNext()) {
 			Bullet player_bullet = bullets_iterator.next();
 			enemies_bullets_iterator = enemies.bullets.iterator();
-			while(enemies_bullets_iterator.hasNext()) {
+			while (enemies_bullets_iterator.hasNext()) {
 				Bullet enemy_bullet = enemies_bullets_iterator.next();
-				if(player_bullet.collision(enemy_bullet)) {
+				if (player_bullet.collision(enemy_bullet)) {
 					bullets_iterator.remove();
 					enemies_bullets_iterator.remove();
 					score.hitBullet();
@@ -143,12 +141,12 @@ public class Game {
 		}
 
 		enemies_bullets_iterator = enemies.bullets.iterator();
-		while(enemies_bullets_iterator.hasNext()) {
+		while (enemies_bullets_iterator.hasNext()) {
 			Bullet bullet = enemies_bullets_iterator.next();
-			if(bullet.outOfBounds()) {
+			if (bullet.outOfBounds()) {
 				enemies_bullets_iterator.remove();
 			} else {
-				if(bullet.collision(player)) {
+				if (bullet.collision(player)) {
 					enemies_bullets_iterator.remove();
 					player.hit();
 				}
@@ -156,18 +154,18 @@ public class Game {
 		}
 
 		bullets_iterator = player.bullets.iterator();
-		while(bullets_iterator.hasNext()) {
+		while (bullets_iterator.hasNext()) {
 			Bullet bullet = bullets_iterator.next();
 
-			if(bullet.outOfBounds()) {
+			if (bullet.outOfBounds()) {
 				bullets_iterator.remove();
 				score.missedBullet();
 			} else {
 				enemies_iterator = enemies.iterator();
-				while(enemies_iterator.hasNext()) {
+				while (enemies_iterator.hasNext()) {
 					Enemy enemy = enemies_iterator.next();
 
-					if(bullet.collision(enemy)) {
+					if (bullet.collision(enemy)) {
 						enemy.hit();
 						bullets_iterator.remove();
 						enemies_iterator.remove();
@@ -178,22 +176,23 @@ public class Game {
 		}
 	}
 
-    void render() {
-        frame.render();
-        player.render(frame.graphics);
-        enemies.render(frame.graphics);
-        score.render(frame.graphics);
-        frame.repaint();
-    }
+	void render() {
+		frame.render();
+		player.render(frame.graphics);
+		enemies.render(frame.graphics);
+		score.render(frame.graphics);
+		frame.repaint();
+	}
 
-    void endFrame() {
+	void endFrame() {
 		player.endFrame();
 		enemies.endFrame();
-    }
+	}
 
-    void delay() {
-        try {
-            Thread.sleep(50);
-        } catch (InterruptedException e) {}
-    }
+	void delay() {
+		try {
+			Thread.sleep(50);
+		} catch (InterruptedException e) {
+		}
+	}
 }

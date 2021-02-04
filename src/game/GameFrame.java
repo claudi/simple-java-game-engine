@@ -23,74 +23,84 @@ public class GameFrame extends Frame implements WindowListener {
 	static Font font;
 	static Font menu_font;
 
-	public static void main(String [] args) {
-	    new GameFrame();
+	public static void main(String[] args) {
+		new GameFrame();
 	}
 
 	GameFrame() {
 		super("Space Invaders");
 
-	    setSize(WIDTH, HEIGHT);
-	    setVisible(true);
-	    setResizable(false);
-	    addWindowListener(this);
+		setSize(WIDTH, HEIGHT);
+		setVisible(true);
+		setResizable(false);
+		addWindowListener(this);
 
-	    image = createImage(WIDTH, HEIGHT);
-	    background = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_3BYTE_BGR);
-	    for(int i = 0; i < WIDTH; i++) {
-	    	for(int j = 0; j < HEIGHT; j++) {
-	    		if(random.nextInt(500) == 0) {
-	    			background.setRGB(i, j, Color.WHITE.getRGB());
-	    		} else {
-	    			background.setRGB(i, j, Color.BLACK.getRGB());
-	    		}
-	    	}
-	    }
-	    graphics = image.getGraphics();
-	    font  = new Font("Arial", Font.PLAIN, 24);
-	    menu_font = new Font("Arial", Font.BOLD, 58);
+		image = createImage(WIDTH, HEIGHT);
+		background = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_3BYTE_BGR);
+		for (int i = 0; i < WIDTH; i++) {
+			for (int j = 0; j < HEIGHT; j++) {
+				if (random.nextInt(500) == 0) {
+					background.setRGB(i, j, Color.WHITE.getRGB());
+				} else {
+					background.setRGB(i, j, Color.BLACK.getRGB());
+				}
+			}
+		}
+		graphics = image.getGraphics();
+		font = new Font("Arial", Font.PLAIN, 24);
+		menu_font = new Font("Arial", Font.BOLD, 58);
 
-	    game = new Game(this);
-	    game.run();
+		game = new Game(this);
+		game.run();
 	}
 
 	void render() {
-	    graphics.setColor(Color.BLACK);
-	    graphics.fillRect(0, 0, WIDTH, HEIGHT);
-	    graphics.drawImage(background, 0, 0, null);
-	    if(printGrid) { // DEBUG
-	        graphics.setColor(Color.DARK_GRAY);
-	        for(int i = 0; i < WIDTH; i += 5) {
-	            graphics.drawLine(i, 0, i, HEIGHT);
-	        }
-	        for(int i = 0; i < HEIGHT; i += 5) {
-	            graphics.drawLine(0, i, WIDTH, i);
-	        }
-	        graphics.setColor(Color.YELLOW);
-	        graphics.drawLine(WIDTH/2, 0, WIDTH/2, HEIGHT);
-	    }
+		graphics.setColor(Color.BLACK);
+		graphics.fillRect(0, 0, WIDTH, HEIGHT);
+		graphics.drawImage(background, 0, 0, null);
+		if (printGrid) { // DEBUG
+			graphics.setColor(Color.DARK_GRAY);
+			for (int i = 0; i < WIDTH; i += 5) {
+				graphics.drawLine(i, 0, i, HEIGHT);
+			}
+			for (int i = 0; i < HEIGHT; i += 5) {
+				graphics.drawLine(0, i, WIDTH, i);
+			}
+			graphics.setColor(Color.YELLOW);
+			graphics.drawLine(WIDTH / 2, 0, WIDTH / 2, HEIGHT);
+		}
 	}
 
 	public void paint(Graphics graphics) {
-	    graphics.drawImage(image, 0, 0, null);
+		graphics.drawImage(image, 0, 0, null);
 	}
 
 	public void update(Graphics graphics) {
-	    paint(graphics);
+		paint(graphics);
 	}
 
-	public void windowClosed(WindowEvent e) {}
+	public void windowClosed(WindowEvent e) {
+	}
+
 	public void windowClosing(WindowEvent e) {
-	    System.out.println("Closing");
-	    System.exit(0);
+		System.out.println("Closing");
+		System.exit(0);
 	}
+
 	public void windowDeactivated(WindowEvent e) {
-	    active = false;
+		active = false;
 	}
+
 	public void windowActivated(WindowEvent e) {
-	    active = true;
+		active = true;
 	}
-	public void windowDeiconified(WindowEvent e) {}
-	public void windowIconified(WindowEvent e) {}
-	public void windowOpened(WindowEvent e) {}
+
+	public void windowDeiconified(WindowEvent e) {
+	}
+
+	public void windowIconified(WindowEvent e) {
+	}
+
+	public void windowOpened(WindowEvent e) {
+	}
 }

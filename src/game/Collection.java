@@ -72,7 +72,7 @@ public abstract class Collection<E> implements List<E> {
 	}
 
 	public E set(int index, E element) {
-		return elements.set(index,  element);
+		return elements.set(index, element);
 	}
 
 	public void add(int index, E element) {

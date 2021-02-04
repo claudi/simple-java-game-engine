@@ -37,55 +37,59 @@ public class Menu implements KeyListener {
 
 	public void render(Graphics graphics) {
 		cursor.render(graphics);
-		for(Button button: buttons) {
+		for (Button button : buttons) {
 			button.render(graphics);
 		}
 	}
 
-	public void keyTyped(KeyEvent e) {}
-	public void keyPressed(KeyEvent e) {}
+	public void keyTyped(KeyEvent e) {
+	}
+
+	public void keyPressed(KeyEvent e) {
+	}
+
 	public void keyReleased(KeyEvent e) {
-		switch(e.getKeyCode()) {
-			case KeyEvent.VK_S:
-			case KeyEvent.VK_DOWN:
-			case KeyEvent.VK_KP_DOWN:
-				if(button.hasNext()) {
-					System.out.println("Has next");
-					if(prevWasCalled) {
-						button.next();
-					}
-					cursor.setPos((Button) button.next());
-					nextWasCalled = true;
-					prevWasCalled = false;
+		switch (e.getKeyCode()) {
+		case KeyEvent.VK_S:
+		case KeyEvent.VK_DOWN:
+		case KeyEvent.VK_KP_DOWN:
+			if (button.hasNext()) {
+				System.out.println("Has next");
+				if (prevWasCalled) {
+					button.next();
 				}
-				break;
-			case KeyEvent.VK_W:
-			case KeyEvent.VK_UP:
-			case KeyEvent.VK_KP_UP:
-				if(button.hasPrevious()) {
-					System.out.println("Has previous");
-					if(nextWasCalled) {
-						button.previous();
-					}
-					cursor.setPos((Button) button.previous());
-					nextWasCalled = false;
-					prevWasCalled = true;
+				cursor.setPos((Button) button.next());
+				nextWasCalled = true;
+				prevWasCalled = false;
+			}
+			break;
+		case KeyEvent.VK_W:
+		case KeyEvent.VK_UP:
+		case KeyEvent.VK_KP_UP:
+			if (button.hasPrevious()) {
+				System.out.println("Has previous");
+				if (nextWasCalled) {
+					button.previous();
 				}
+				cursor.setPos((Button) button.previous());
+				nextWasCalled = false;
+				prevWasCalled = true;
+			}
+			break;
+		case KeyEvent.VK_ENTER:
+			switch (cursor.command) {
+			case NEW_GAME:
+				inMenu = false;
 				break;
-			case KeyEvent.VK_ENTER:
-				switch(cursor.command) {
-					case NEW_GAME:
-						inMenu = false;
-						break;
-					case EXIT:
-						game.frame.dispatchEvent(new WindowEvent(game.frame, WindowEvent.WINDOW_CLOSING));
-						break;
-				case LEADERBOARD:
-					break;
-				case LOAD_GAME:
-					break;
-				}
+			case EXIT:
+				game.frame.dispatchEvent(new WindowEvent(game.frame, WindowEvent.WINDOW_CLOSING));
 				break;
+			case LEADERBOARD:
+				break;
+			case LOAD_GAME:
+				break;
+			}
+			break;
 		}
 	}
 }

@@ -12,7 +12,7 @@ abstract public class Entity extends Sprite {
 	int pos_x, pos_y; // Central position of Entity
 
 	void move(int dx, int dy) {
-		for(Pixel pixel: elements) {
+		for (Pixel pixel : elements) {
 			pixel.move(dx, dy);
 		}
 		pos_x += dx;
@@ -20,8 +20,8 @@ abstract public class Entity extends Sprite {
 	}
 
 	boolean collision(Entity entity) {
-		for(Pixel pixel: elements) {
-			if(pixel.collision(entity)) {
+		for (Pixel pixel : elements) {
+			if (pixel.collision(entity)) {
 				return true;
 			}
 		}

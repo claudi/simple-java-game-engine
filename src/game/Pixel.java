@@ -16,7 +16,7 @@ public class Pixel {
 
 	void render(Graphics graphics) {
 		graphics.setColor(color);
-		graphics.fillRect(pos_x - width/2, pos_y - height/2, width, height);
+		graphics.fillRect(pos_x - width / 2, pos_y - height / 2, width, height);
 	}
 
 	void move(int dx, int dy) {
@@ -25,8 +25,8 @@ public class Pixel {
 	}
 
 	boolean collision(Entity entity) {
-		for(Pixel pixel: entity.elements) {
-			if(collision(pixel)) {
+		for (Pixel pixel : entity.elements) {
+			if (collision(pixel)) {
 				return true;
 			}
 		}
@@ -34,12 +34,12 @@ public class Pixel {
 	}
 
 	boolean collision(Pixel pixel) {
-		boolean leftLTright = this.pos_x - width/2 <= pixel.pos_x + width/2;
-		boolean rightGTleft = this.pos_x + width/2 >= pixel.pos_x - width/2;
+		boolean leftLTright = this.pos_x - width / 2 <= pixel.pos_x + width / 2;
+		boolean rightGTleft = this.pos_x + width / 2 >= pixel.pos_x - width / 2;
 		boolean topLTbottom = this.pos_y <= pixel.pos_y + height;
 		boolean bottolGTtop = this.pos_y + height >= pixel.pos_y;
 
-		if(leftLTright && rightGTleft && topLTbottom && bottolGTtop) {
+		if (leftLTright && rightGTleft && topLTbottom && bottolGTtop) {
 			return true;
 		}
 		return false;

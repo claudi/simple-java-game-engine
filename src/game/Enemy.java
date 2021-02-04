@@ -16,17 +16,18 @@ public class Enemy extends Entity {
 		this.pos_y = pos_y;
 		shooting = new Sound("alien_shooting");
 		death = new Sound("alien_death");
-	    count++;
+		count++;
 	}
 
 	Bullet shoot() {
 		shooting.play();
-		return new Bullet(pos_x, pos_y + height/2);
+		return new Bullet(pos_x, pos_y + height / 2);
 	}
 
 	void hit() {
 		death.play();
 	}
 
-	void endFrame() {}
+	void endFrame() {
+	}
 }
