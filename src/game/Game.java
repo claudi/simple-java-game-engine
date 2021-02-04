@@ -168,6 +168,7 @@ public class Game {
 					Enemy enemy = enemies_iterator.next();
 
 					if(bullet.collision(enemy)) {
+						enemy.hit();
 						bullets_iterator.remove();
 						enemies_iterator.remove();
 						score.hitEnemy();
