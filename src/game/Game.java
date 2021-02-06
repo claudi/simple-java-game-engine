@@ -22,11 +22,11 @@ public class Game {
 		this.score = new Score();
 		this.menu = new Menu(this);
 		this.level = 1;
-
-		initEntities();
 	}
 
 	void run() {
+		initEntities();
+
 		frame.addKeyListener(menu);
 
 		while (menu.inMenu()) {

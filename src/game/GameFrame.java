@@ -51,7 +51,10 @@ public class GameFrame extends Frame implements WindowListener {
 		menu_font = new Font("Arial", Font.BOLD, 58);
 
 		game = new Game(this);
-		game.run();
+
+		while(true) {
+			game.run();
+		}
 	}
 
 	void render() {
