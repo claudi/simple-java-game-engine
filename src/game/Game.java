@@ -53,11 +53,11 @@ public class Game {
 			level++;
 		} else if (enemies.size() > 0) {
 			System.out.println("Enemies win");
+			quitGame();
 		} else {
 			System.out.println("Tie");
+			quitGame();
 		}
-
-		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 	}
 
 	void initEntities() {
@@ -197,5 +197,9 @@ public class Game {
 			Thread.sleep(50);
 		} catch (InterruptedException e) {
 		}
+	}
+
+	void quitGame() {
+		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 	}
 }

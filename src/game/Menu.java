@@ -82,7 +82,7 @@ public class Menu implements KeyListener {
 				inMenu = false;
 				break;
 			case EXIT:
-				game.frame.dispatchEvent(new WindowEvent(game.frame, WindowEvent.WINDOW_CLOSING));
+				game.quitGame();
 				break;
 			case LEADERBOARD:
 				break;
