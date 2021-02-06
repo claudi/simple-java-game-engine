@@ -15,11 +15,13 @@ public class Game {
 	Enemies enemies;
 	Score score;
 	Menu menu;
+	int level;
 
 	Game(GameFrame frame) {
 		this.frame = frame;
 		this.score = new Score();
 		this.menu = new Menu(this);
+		this.level = 1;
 
 		initEntities();
 	}
