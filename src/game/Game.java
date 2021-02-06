@@ -50,6 +50,7 @@ public class Game {
 
 		if (player.isAlive()) {
 			System.out.println("Player win");
+			level++;
 		} else if (enemies.size() > 0) {
 			System.out.println("Enemies win");
 		} else {
