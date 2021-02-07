@@ -62,7 +62,7 @@ public class Game {
 
 	void initEntities() {
 		player = new Player(GameFrame.WIDTH / 2, GameFrame.HEIGHT - 8 * Player.height);
-		enemies = new Enemies(5, 5);
+		enemies = new Enemies(5, 5, level);
 	}
 
 	boolean gameOver() {

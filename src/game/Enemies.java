@@ -9,10 +9,15 @@ public class Enemies extends Collection<Enemy> {
 	int v = 3;
 	private int bullet_speed = 12;
 	Bullets bullets = new Bullets(bullet_speed);
+	private int difficulty;
 
-	Enemies(int n, int m) {
+	Enemies(int n, int m, int level) {
 		this.n = n;
 		this.m = m;
+		this.difficulty = 100 - 10*level;
+		if(this.difficulty <= 0) {
+			this.difficulty = 10;
+		}
 
 		int enemy_width = Pixel.height * Enemy.pixel_array[0].length;
 		int enemy_height = Pixel.width * Enemy.pixel_array.length;
@@ -61,7 +66,7 @@ public class Enemies extends Collection<Enemy> {
 
 	void endFrame() {
 		for (Enemy enemy : elements) {
-			if (isLastInColumn(enemy) && GameFrame.random.nextInt(50) == 0) {
+			if (isLastInColumn(enemy) && GameFrame.random.nextInt(difficulty) == 0) {
 				bullets.add(enemy.shoot());
 			}
 		}
