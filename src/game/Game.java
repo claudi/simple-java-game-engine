@@ -15,13 +15,11 @@ public class Game {
 	Enemies enemies;
 	Score score;
 	Menu menu;
-	int level;
 
 	Game(GameFrame frame) {
 		this.frame = frame;
 		this.score = new Score();
 		this.menu = new Menu(this);
-		this.level = 1;
 	}
 
 	void run() {
@@ -50,7 +48,7 @@ public class Game {
 
 		if (player.isAlive()) {
 			System.out.println("Player win");
-			level++;
+			score.advanceLevel();
 		} else if (enemies.size() > 0) {
 			System.out.println("Enemies win");
 			quitGame();
@@ -62,7 +60,7 @@ public class Game {
 
 	void initEntities() {
 		player = new Player(GameFrame.WIDTH / 2, GameFrame.HEIGHT - 8 * Player.height);
-		enemies = new Enemies(5, 5, level);
+		enemies = new Enemies(5, 5, score.level);
 	}
 
 	boolean gameOver() {
