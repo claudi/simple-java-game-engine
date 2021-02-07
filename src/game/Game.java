@@ -20,11 +20,11 @@ public class Game {
 		this.frame = frame;
 		this.score = new Score();
 		this.menu = new Menu(this);
-
-		initEntities();
 	}
 
 	void run() {
+		initEntities();
+
 		frame.addKeyListener(menu);
 
 		while (menu.inMenu()) {
@@ -48,18 +48,19 @@ public class Game {
 
 		if (player.isAlive()) {
 			System.out.println("Player win");
+			score.advanceLevel();
 		} else if (enemies.size() > 0) {
 			System.out.println("Enemies win");
+			quitGame();
 		} else {
 			System.out.println("Tie");
+			quitGame();
 		}
-
-		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 	}
 
 	void initEntities() {
 		player = new Player(GameFrame.WIDTH / 2, GameFrame.HEIGHT - 8 * Player.height);
-		enemies = new Enemies(5, 5);
+		enemies = new Enemies(5, 5, score.level);
 	}
 
 	boolean gameOver() {
@@ -194,5 +195,9 @@ public class Game {
 			Thread.sleep(50);
 		} catch (InterruptedException e) {
 		}
+	}
+
+	void quitGame() {
+		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 	}
 }
