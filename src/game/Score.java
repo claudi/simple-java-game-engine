@@ -40,5 +40,6 @@ public class Score {
 		graphics.setColor(Color.WHITE);
 		graphics.setFont(GameFrame.font);
 		graphics.drawString("SCORE: " + String.valueOf(enemies_hit + bullets_hit + bullets_intercepted), 10, 40);
+		graphics.drawString("LEVEL: " + String.valueOf(level), 10, 70);
 	}
 }
