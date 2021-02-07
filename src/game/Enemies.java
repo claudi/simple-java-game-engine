@@ -14,8 +14,8 @@ public class Enemies extends Collection<Enemy> {
 	Enemies(int n, int m, int level) {
 		this.n = n;
 		this.m = m;
-		this.difficulty = 100 - 10*level;
-		if(this.difficulty <= 0) {
+		this.difficulty = 100 - 10 * level;
+		if (this.difficulty <= 0) {
 			this.difficulty = 10;
 		}
 
