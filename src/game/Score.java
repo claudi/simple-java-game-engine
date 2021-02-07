@@ -31,7 +31,7 @@ public class Score {
 	public void missedBullet() {
 		bullets_missed++;
 	}
-	
+
 	public void advanceLevel() {
 		level++;
 	}
