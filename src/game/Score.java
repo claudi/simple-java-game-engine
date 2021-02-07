@@ -8,12 +8,14 @@ public class Score {
 	int bullets_hit;
 	int bullets_missed;
 	int bullets_intercepted;
+	int level;
 
 	public Score() {
 		enemies_hit = 0;
 		bullets_hit = 0;
 		bullets_missed = 0;
 		bullets_intercepted = 0;
+		level = 1;
 	}
 
 	public void hitEnemy() {
@@ -28,6 +30,10 @@ public class Score {
 
 	public void missedBullet() {
 		bullets_missed++;
+	}
+	
+	public void advanceLevel() {
+		level++;
 	}
 
 	public void render(Graphics graphics) {
