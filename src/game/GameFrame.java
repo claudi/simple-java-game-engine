@@ -52,7 +52,7 @@ public class GameFrame extends Frame implements WindowListener {
 
 		game = new Game(this);
 
-		while(true) {
+		while (true) {
 			game.run();
 		}
 	}
