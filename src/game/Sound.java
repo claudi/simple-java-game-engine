@@ -7,17 +7,20 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
 public class Sound {
-	private Clip clip;
+	private Clip clip = null;
+	private AudioInputStream audioInputStream = null;
 
 	public Sound(String name) {
 		try {
 			File file = new File("res/" + name + ".wav");
-			AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+			audioInputStream = AudioSystem.getAudioInputStream(file);
 			clip = AudioSystem.getClip();
 			clip.open(audioInputStream);
+			audioInputStream.close();
 			clip.start();
 			clip.stop();
 		} catch (Exception e) {
+			System.out.println(name);
 			e.printStackTrace();
 		}
 	}
@@ -28,5 +31,12 @@ public class Sound {
 		}
 		clip.setFramePosition(0);
 		clip.start();
+	}
+	
+	public void close() {
+		//clip.drain();
+		clip.stop();
+		clip.close();
+		System.out.println(clip.isOpen());
 	}
 }
