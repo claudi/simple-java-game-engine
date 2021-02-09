@@ -20,10 +20,10 @@ public class Menu implements KeyListener {
 		this.game = game;
 		this.inMenu = true;
 		this.buttons = new LinkedList<Button>();
-		this.buttons.add(new Button(30, 100, "New game", MenuCommand.NEW_GAME, game.frame.graphics));
-		this.buttons.add(new Button(30, 180, "Load game", MenuCommand.LOAD_GAME, game.frame.graphics));
-		this.buttons.add(new Button(30, 260, "Leaderboard", MenuCommand.LEADERBOARD, game.frame.graphics));
-		this.buttons.add(new Button(30, 340, "Exit", MenuCommand.EXIT, game.frame.graphics));
+		this.buttons.add(new Button(30, 100, "New game", Command.NEW_GAME, game.frame.graphics));
+		this.buttons.add(new Button(30, 180, "Load game", Command.LOAD_GAME, game.frame.graphics));
+		this.buttons.add(new Button(30, 260, "Leaderboard", Command.LEADERBOARD, game.frame.graphics));
+		this.buttons.add(new Button(30, 340, "Exit", Command.EXIT, game.frame.graphics));
 		this.cursor = new Cursor(GameFrame.WIDTH, GameFrame.HEIGHT, game.frame.graphics);
 		this.cursor.setPos(buttons.getFirst());
 		this.button = buttons.listIterator();
@@ -86,6 +86,8 @@ public class Menu implements KeyListener {
 			case LEADERBOARD:
 				break;
 			case LOAD_GAME:
+				break;
+			default:
 				break;
 			}
 			break;

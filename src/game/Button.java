@@ -7,9 +7,9 @@ public class Button {
 	private int pos_x, pos_y;
 	private int width, height;
 	private String label;
-	private MenuCommand command;
+	private Command command;
 
-	public Button(int pos_x, int pos_y, String label, MenuCommand command, Graphics graphics) {
+	public Button(int pos_x, int pos_y, String label, Command command, Graphics graphics) {
 		this.label = label.toUpperCase();
 		this.height = graphics.getFontMetrics(GameFrame.menu_font).getAscent();
 		this.width = graphics.getFontMetrics(GameFrame.menu_font).stringWidth(label);
@@ -34,7 +34,7 @@ public class Button {
 		return width;
 	}
 
-	MenuCommand getCommand() {
+	Command getCommand() {
 		return command;
 	}
 
