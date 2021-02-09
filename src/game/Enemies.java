@@ -19,6 +19,9 @@ public class Enemies extends Collection<Enemy> {
 			this.difficulty = 10;
 		}
 		this.v = 2 + level;
+		if(this.v >= 10) {
+			this.v = 10;
+		}
 
 		int enemy_width = Pixel.height * Enemy.pixel_array[0].length;
 		int enemy_height = Pixel.width * Enemy.pixel_array.length;
