@@ -8,7 +8,7 @@ public class Enemies extends Collection<Enemy> {
 	public int width, height;
 	int v = 3;
 	private static int base_v = 2;
-	private static int vertical_v = 5*Pixel.height;
+	private static int vertical_v = 5 * Pixel.height;
 	private static int base_bullet_v = 10;
 	private int bullet_speed;
 	Bullets bullets;
@@ -26,7 +26,7 @@ public class Enemies extends Collection<Enemy> {
 			this.v = 10;
 		}
 		this.bullet_speed = Enemies.base_bullet_v + level;
-		if(this.bullet_speed > 18) {
+		if (this.bullet_speed > 18) {
 			this.bullet_speed = 18;
 		}
 		bullets = new Bullets(bullet_speed);
@@ -58,7 +58,7 @@ public class Enemies extends Collection<Enemy> {
 				v = -v;
 				vertical_v = Enemies.vertical_v;
 				break;
-			} else if(enemy.pos_x + 4 * enemy.width > GameFrame.WIDTH) {
+			} else if (enemy.pos_x + 4 * enemy.width > GameFrame.WIDTH) {
 				v = -v;
 				break;
 			}
