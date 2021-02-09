@@ -19,13 +19,13 @@ public class Score {
 		deducted = 0;
 		level = 1;
 	}
-	
+
 	public int getScore() {
 		return enemies_hit + bullets_hit + bullets_intercepted - deducted;
 	}
-	
+
 	public boolean deductScore(int val) {
-		if(getScore() < val) {
+		if (getScore() < val) {
 			return false;
 		}
 		this.deducted += val;
