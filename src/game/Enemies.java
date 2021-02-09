@@ -19,7 +19,7 @@ public class Enemies extends Collection<Enemy> {
 			this.difficulty = 10;
 		}
 		this.v = 2 + level;
-		if(this.v >= 10) {
+		if (this.v >= 10) {
 			this.v = 10;
 		}
 
