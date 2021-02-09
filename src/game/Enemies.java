@@ -8,7 +8,7 @@ public class Enemies extends Collection<Enemy> {
 	public int width, height;
 	int v = 3;
 	private static int base_v = 2;
-	private static int vertical_v = 5*Pixel.height;
+	private static int vertical_v = 5 * Pixel.height;
 	private int bullet_speed = 12;
 	Bullets bullets = new Bullets(bullet_speed);
 	private int difficulty;
@@ -52,7 +52,7 @@ public class Enemies extends Collection<Enemy> {
 				v = -v;
 				vertical_v = Enemies.vertical_v;
 				break;
-			} else if(enemy.pos_x + 4 * enemy.width > GameFrame.WIDTH) {
+			} else if (enemy.pos_x + 4 * enemy.width > GameFrame.WIDTH) {
 				v = -v;
 				break;
 			}
