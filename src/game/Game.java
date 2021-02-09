@@ -46,14 +46,11 @@ public class Game {
 			delay();
 		}
 
-		if (player.isAlive()) {
-			System.out.println("Player win");
+		if (player.isAlive()) { // Player win
 			score.advanceLevel();
-		} else if (enemies.size() > 0) {
-			System.out.println("Enemies win");
+		} else if (enemies.size() > 0) { // Enemies win
 			quitGame();
-		} else {
-			System.out.println("Tie");
+		} else { // Tie
 			quitGame();
 		}
 	}
