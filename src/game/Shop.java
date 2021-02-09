@@ -83,7 +83,7 @@ public class Shop implements KeyListener {
 			case BULLET_SPEED:
 				break;
 			case EXTRA_LIVE:
-				//game.player.nlives =+ 1;
+				// game.player.nlives =+ 1;
 				break;
 			case EXIT:
 				inMenu = false;
