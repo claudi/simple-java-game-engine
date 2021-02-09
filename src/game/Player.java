@@ -74,10 +74,10 @@ public class Player extends Entity implements KeyListener {
 	}
 
 	public void keyReleased(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_A) {
+		if (e.getKeyCode() == KeyEvent.VK_A && vb_l) {
 			vb_l = false;
 			v_l -= -v_increment;
-		} else if (e.getKeyCode() == KeyEvent.VK_D) {
+		} else if (e.getKeyCode() == KeyEvent.VK_D && vb_r) {
 			vb_r = false;
 			v_r -= v_increment;
 		}
