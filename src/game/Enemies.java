@@ -7,6 +7,7 @@ public class Enemies extends Collection<Enemy> {
 	int pos_x = GameFrame.WIDTH / 2, pos_y;
 	public int width, height;
 	int v = 3;
+	private static int vertical_v = 5*Pixel.height;
 	private int bullet_speed = 12;
 	Bullets bullets = new Bullets(bullet_speed);
 	private int difficulty;
@@ -43,16 +44,21 @@ public class Enemies extends Collection<Enemy> {
 
 	void move() {
 		bullets.move();
+		int vertical_v = 0;
 
 		for (Enemy enemy : elements) {
-			if (enemy.pos_x - 4 * enemy.width < 0 || enemy.pos_x + 4 * enemy.width > GameFrame.WIDTH) {
+			if (enemy.pos_x - 4 * enemy.width < 0) {
+				v = -v;
+				vertical_v = Enemies.vertical_v;
+				break;
+			} else if(enemy.pos_x + 4 * enemy.width > GameFrame.WIDTH) {
 				v = -v;
 				break;
 			}
 		}
 
 		for (Enemy enemy : elements) {
-			enemy.move(v, 0);
+			enemy.move(v, vertical_v);
 		}
 		pos_x += v;
 	}
