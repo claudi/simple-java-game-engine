@@ -9,8 +9,9 @@ public class Enemies extends Collection<Enemy> {
 	int v = 3;
 	private static int base_v = 2;
 	private static int vertical_v = 5*Pixel.height;
-	private int bullet_speed = 12;
-	Bullets bullets = new Bullets(bullet_speed);
+	private static int base_bullet_v = 10;
+	private int bullet_speed;
+	Bullets bullets;
 	private int difficulty;
 
 	Enemies(int n, int m, int level) {
@@ -21,9 +22,14 @@ public class Enemies extends Collection<Enemy> {
 			this.difficulty = 10;
 		}
 		this.v = Enemies.base_v + level;
-		if (this.v >= 10) {
+		if (this.v > 10) {
 			this.v = 10;
 		}
+		this.bullet_speed = Enemies.base_bullet_v + level;
+		if(this.bullet_speed > 18) {
+			this.bullet_speed = 18;
+		}
+		bullets = new Bullets(bullet_speed);
 
 		int enemy_width = Pixel.height * Enemy.pixel_array[0].length;
 		int enemy_height = Pixel.width * Enemy.pixel_array.length;
