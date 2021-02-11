@@ -9,7 +9,5 @@ abstract public class Bullet extends Entity {
 		super(pixel_array, pos_x, pos_y);
 	}
 
-	abstract public void endFrame();
-
 	abstract public boolean outOfBounds();
 }
