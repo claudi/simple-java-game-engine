@@ -4,8 +4,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 abstract public class Player extends Entity implements KeyListener {
-	abstract void moveCommandLeft();
-	abstract void moveCommandRight();
+	abstract void moveLeftCommand();
+	abstract void moveRightCommand();
 
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
