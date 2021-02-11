@@ -1,9 +1,15 @@
 package engine;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 abstract public class Player extends Entity implements KeyListener {
+	static Color[][] pixel_array;
+	
+	public Player(int pos_x, int pos_y) {
+		super(pixel_array, pos_x, pos_y);
+	}
 	protected abstract void moveLeftCommand(boolean status);
 	protected abstract void moveRightCommand(boolean status);
 	protected abstract void shootCommand();
