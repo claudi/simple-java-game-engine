@@ -2,7 +2,7 @@ package game;
 
 import java.awt.Color;
 
-abstract public class Entity extends Sprite {
+abstract class Entity extends Sprite {
 	public Entity(Color[][] pixel_array, int pos_x, int pos_y) {
 		super(pixel_array, pos_x, pos_y);
 		this.pos_x = pos_x;
