@@ -1,14 +1,13 @@
 package engine;
 
-import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 abstract public class Player extends Entity implements KeyListener {
-	static Color[][] pixel_array;
+	public Bullets bullets;
 	
 	public Player(int bounds_x, int bounds_y) {
-		super(pixel_array, bounds_x / 2, (int) 0.8*bounds_y);
+		super(bounds_x / 2, (int) 0.8*bounds_y);
 	}
 	
 	public abstract void move();
