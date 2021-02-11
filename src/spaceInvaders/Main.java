@@ -17,8 +17,8 @@ public class Main {
 		jugador.setBounds(game);
 		game.setPlayer(jugador);
 		
-		Blocks blocks = new Blocks();
-		game.setEnemies(blocks);
+		Enemics enemics = new Enemics();
+		game.setEnemies(enemics);
 		
 		game.mainLoop();
 		game.quitGame();
