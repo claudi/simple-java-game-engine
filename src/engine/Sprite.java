@@ -53,7 +53,7 @@ public class Sprite extends Collection<Pixel> {
 		return pos_y;
 	}
 	
-	void render(Graphics graphics) {
+	public void render(Graphics graphics) {
 		for(Pixel pixel: elements) {
 			pixel.render(graphics);
 		}
