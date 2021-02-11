@@ -4,7 +4,6 @@ import java.awt.Color;
 
 import engine.Game;
 import engine.Player;
-import game.GameFrame;
 
 public class Jugador extends Player {
 	private boolean vb_l = false, vb_r = false;
