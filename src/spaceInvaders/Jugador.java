@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import engine.Game;
 import engine.Player;
+import game.GameFrame;
 
 public class Jugador extends Player {
 	private boolean vb_l = false, vb_r = false;
@@ -40,7 +41,12 @@ public class Jugador extends Player {
 	}
 
 	public void move() {
-		
+		if (!outOfBoundsRight()) {
+			super.move(v_r, 0);
+		}
+		if (!outOfBoundsLeft()) {
+			super.move(v_l, 0);
+		}
 	}
 	
 	public void endFrame() {
