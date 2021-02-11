@@ -15,7 +15,10 @@ public class Main {
 		Game game = new Game("Space Invaders");
 		game.setBackground(generateBackground(game.getWidth(), game.getHeight()));
 		
-		game.setPlayer(new Jugador(game.getWidth(), game.getHeight()));
+		Jugador jugador = new Jugador(game.getWidth() / 2, (int) 0.8*game.getHeight());
+		jugador.setBounds(game);
+		game.setPlayer(jugador);
+		
 		Blocks blocks = new Blocks();
 		game.setEnemies(blocks);
 		
