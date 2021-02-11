@@ -11,6 +11,7 @@ import java.util.HashMap;
 public class Game {
 	GameFrame frame;
 	Player player;
+	Enemies enemies;
 	
 	public Game(String name) {
 		frame = new GameFrame(name);
@@ -22,6 +23,10 @@ public class Game {
 	
 	public void setPlayer(Player player) {
 		this.player = player;
+	}
+	
+	public void setEnemies(Enemies enemies) {
+		this.enemies = enemies;
 	}
 	
 	public void setBackground(BufferedImage background) {
