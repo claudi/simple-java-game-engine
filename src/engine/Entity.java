@@ -15,14 +15,6 @@ abstract public class Entity extends Sprite {
 		}
 		return false;
 	}
-
-	public boolean isOutOfBounds() {
-		return isOutOfBoundsLeft() || isOutOfBoundsRight() || isOutOfBoundsTop() || isOutOfBoundsBottom();
-	}
 	
-	public abstract boolean isOutOfBoundsLeft();
-	public abstract boolean isOutOfBoundsRight();
-	public abstract boolean isOutOfBoundsTop();
-	public abstract boolean isOutOfBoundsBottom();
 	public abstract void endFrame();
 }
