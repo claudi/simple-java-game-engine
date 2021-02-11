@@ -7,10 +7,10 @@ import engine.Enemy;
 import engine.Game;
 
 public class Enemic extends Enemy {
-	static Color[][] pixel_array = Game.sprites("alien");
+	static Color[][] pixel_array = Game.sprites("enemy");
 	
 	public Enemic(int pos_x, int pos_y) {
-		super(pos_x, pos_y);
+		super(pixel_array, pos_x, pos_y);
 	}
 
 	public Bullet shoot() {

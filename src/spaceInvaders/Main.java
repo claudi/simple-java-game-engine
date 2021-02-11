@@ -13,12 +13,15 @@ public class Main {
 		Game game = new Game("Space Invaders");
 		game.setBackground(generateBackground(game.getWidth(), game.getHeight()));
 		
-		Jugador jugador = new Jugador(game.getWidth() / 2, (int) 0.8*game.getHeight());
+		Jugador jugador = new Jugador(game.getWidth() / 2, Math.round(0.9f*game.getHeight()));
 		jugador.setBounds(game);
 		game.setPlayer(jugador);
 		
 		Enemics enemics = new Enemics(5, 5, game.getWidth() / 2);
+		enemics.setBounds(game);
 		game.setEnemies(enemics);
+		
+		Bala.setBounds(game);
 		
 		game.mainLoop();
 		game.quitGame();

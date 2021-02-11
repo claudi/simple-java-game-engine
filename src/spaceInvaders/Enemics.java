@@ -6,12 +6,12 @@ import engine.Game;
 import engine.Sprite;
 
 public class Enemics extends Enemies {
-	Bales bales = new Bales();
 	private int bounds;
 	private int bullet_speed = 12;
 	private int v = 3;
 	
 	public Enemics(int n, int m, int pos_x) {
+		this.bullets = new Bales();
 		int enemy_width = Sprite.getPixelWidth() * Enemic.pixel_array[0].length;
 		int enemy_height = Sprite.getPixelHeight() * Enemic.pixel_array.length;
 
@@ -31,8 +31,8 @@ public class Enemics extends Enemies {
 		this.bounds = game.getWidth();
 	}
 
-	public void move(int dx, int dy) {
-		bales.move(0, bullet_speed);
+	public void move() {
+		bullets.move(0, bullet_speed);
 
 		for (Enemy enemy : elements) {
 			int pos_x = enemy.getPosX();
@@ -67,12 +67,11 @@ public class Enemics extends Enemies {
 	public void endFrame() {
 		for (Enemy enemy : elements) {
 			if (isLastInColumn(enemy) && Main.random.nextInt(50) == 0) {
-				bales.add(enemy.shoot());
+				bullets.add(enemy.shoot());
 			}
 		}
 		for (Enemy enemy : elements) {
 			enemy.endFrame();
 		}
 	}
-
 }
