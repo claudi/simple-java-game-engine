@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 abstract class Collection<E> implements List<E> {
-	private List<E> elements = new ArrayList<E>();
+	List<E> elements = new ArrayList<E>();
 
 	abstract void render(Graphics graphics);
 
