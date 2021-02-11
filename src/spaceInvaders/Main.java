@@ -5,6 +5,8 @@ import java.awt.image.BufferedImage;
 import java.util.Random;
 
 import engine.Game;
+import game.GameFrame;
+import game.Player;
 
 public class Main {
 	static Random random = new Random();
@@ -13,7 +15,7 @@ public class Main {
 		Game game = new Game("Space Invaders");
 		game.setBackground(generateBackground(game.getWidth(), game.getHeight()));
 		
-		game.setPlayer(new Jugador());
+		game.setPlayer(new Jugador(game.getWidth(), game.getHeight()));
 		Blocks blocks = new Blocks();
 		game.setEnemies(blocks);
 		
