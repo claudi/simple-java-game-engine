@@ -5,8 +5,6 @@ import java.awt.image.BufferedImage;
 import java.util.Random;
 
 import engine.Game;
-import game.GameFrame;
-import game.Player;
 
 public class Main {
 	static Random random = new Random();
