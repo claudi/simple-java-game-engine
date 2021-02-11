@@ -4,9 +4,12 @@ import java.awt.Color;
 
 import engine.Game;
 import engine.Player;
+import game.Bullet;
 
 public class Jugador extends Player {
 	private boolean vb_l = false, vb_r = false;
+	private int bullet_cooldown_count = 0;
+	private static int bullet_cooldown = 5;
 	private int v_l = 0, v_r = 0;
 	private int v_increment = 10;
 	static Color[][] pixel_array = Game.sprites("player_sprite");
@@ -36,7 +39,9 @@ public class Jugador extends Player {
 	}
 
 	protected void shootCommand() {
-		
+		if (bullet_cooldown_count == 0) {
+			bullet_cooldown_count = bullet_cooldown;
+		}
 	}
 
 	public void move() {
