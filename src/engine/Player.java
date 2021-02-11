@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 abstract public class Player extends Entity implements KeyListener {
 	abstract void moveLeftCommand();
 	abstract void moveRightCommand();
+	abstract void shootCommand();
 
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
@@ -17,6 +18,8 @@ abstract public class Player extends Entity implements KeyListener {
 		case KeyEvent.VK_RIGHT:
 			moveRightCommand();
 			break;
+		case KeyEvent.VK_SPACE:
+			shootCommand();
 		default:
 				break;
 		}
