@@ -8,6 +8,7 @@ import engine.Player;
 
 public class Jugador extends Player {
 	private boolean vb_l = false, vb_r = false;
+	private int bounds;
 	private int bullet_cooldown_count = 0;
 	private static int bullet_cooldown = 5;
 	private int v_l = 0, v_r = 0;
@@ -43,12 +44,17 @@ public class Jugador extends Player {
 			bullet_cooldown_count = bullet_cooldown;
 		}
 	}
+	
+	public void setBounds(Game game) {
+		this.bounds = game.getWidth();
+	}
 
 	public void move() {
-		if (!outOfBoundsRight()) {
+		int pos_x = getPosX();
+		if (pos_x > 0.8 * bounds) {
 			super.move(v_r, 0);
 		}
-		if (!outOfBoundsLeft()) {
+		if (pos_x < 0.2 * bounds) {
 			super.move(v_l, 0);
 		}
 	}

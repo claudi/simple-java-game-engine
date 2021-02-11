@@ -8,6 +8,4 @@ abstract public class Bullet extends Entity {
 	public Bullet(int pos_x, int pos_y) {
 		super(pixel_array, pos_x, pos_y);
 	}
-
-	abstract public boolean outOfBounds();
 }
