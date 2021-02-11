@@ -14,23 +14,23 @@ public class Game {
 	GameFrame frame;
 	Player player;
 	Enemies enemies;
-	
+
 	public Game(String name) {
 		frame = new GameFrame(name);
 	}
-	
+
 	public Game(String name, int height, int width) {
 		frame = new GameFrame(name, height, width);
 	}
-	
+
 	public void setPlayer(Player player) {
 		this.player = player;
 	}
-	
+
 	public void setEnemies(Enemies enemies) {
 		this.enemies = enemies;
 	}
-	
+
 	public void setBackground(BufferedImage background) {
 		frame.setBackground(background);
 	}
@@ -38,14 +38,14 @@ public class Game {
 	public int getWidth() {
 		return frame.getWidth();
 	}
-	
+
 	public int getHeight() {
 		return frame.getHeight();
 	}
-	
+
 	public void mainLoop() {
 		frame.addKeyListener(player);
-		
+
 		while (!gameOver()) {
 			if (frame.isActive()) {
 				makeMoves();
@@ -64,7 +64,7 @@ public class Game {
 			quitGame();
 		}
 	}
-	
+
 	private void makeMoves() {
 		player.move();
 		enemies.move();
@@ -152,7 +152,7 @@ public class Game {
 	public void quitGame() {
 		frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
 	}
-	
+
 	public static Color[][] sprites(String name) {
 		int width, height, colours;
 		String file = "./res/" + name + ".xpm";

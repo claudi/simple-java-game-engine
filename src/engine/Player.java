@@ -7,24 +7,30 @@ import java.awt.event.KeyListener;
 
 abstract public class Player extends Entity implements KeyListener {
 	public Bullets bullets;
-	
+
 	public Player(Color[][] pixel_array, int pos_x, int pos_y) {
-		super(pixel_array,pos_x, pos_y);
+		super(pixel_array, pos_x, pos_y);
 	}
-	
+
 	public abstract void move();
+
 	protected abstract void moveLeftCommand(boolean status);
+
 	protected abstract void moveRightCommand(boolean status);
+
 	protected abstract void shootCommand();
+
 	public abstract boolean isAlive();
+
 	public boolean isDead() {
 		return !isAlive();
 	}
-	
-	public void keyTyped(KeyEvent e) {}
-	
+
+	public void keyTyped(KeyEvent e) {
+	}
+
 	public void keyReleased(KeyEvent e) {
-		switch(e.getKeyCode()) {
+		switch (e.getKeyCode()) {
 		case KeyEvent.VK_A:
 		case KeyEvent.VK_LEFT:
 			moveLeftCommand(false);
@@ -34,7 +40,7 @@ abstract public class Player extends Entity implements KeyListener {
 			moveRightCommand(false);
 			break;
 		default:
-				break;
+			break;
 		}
 	}
 
@@ -44,7 +50,7 @@ abstract public class Player extends Entity implements KeyListener {
 	}
 
 	public void keyPressed(KeyEvent e) {
-		switch(e.getKeyCode()) {
+		switch (e.getKeyCode()) {
 		case KeyEvent.VK_A:
 		case KeyEvent.VK_LEFT:
 			moveLeftCommand(true);
@@ -56,7 +62,7 @@ abstract public class Player extends Entity implements KeyListener {
 		case KeyEvent.VK_SPACE:
 			shootCommand();
 		default:
-				break;
+			break;
 		}
 	}
 }

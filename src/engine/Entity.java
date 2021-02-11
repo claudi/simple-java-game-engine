@@ -15,7 +15,8 @@ abstract public class Entity extends Sprite {
 		}
 		return false;
 	}
-	
+
 	public abstract void hit();
+
 	public abstract void endFrame();
 }
