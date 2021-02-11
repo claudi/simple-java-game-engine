@@ -39,6 +39,10 @@ public class Jugador extends Player {
 		
 	}
 
+	public void move() {
+		
+	}
+	
 	public void endFrame() {
 		
 	}
