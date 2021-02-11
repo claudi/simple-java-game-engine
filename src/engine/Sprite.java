@@ -4,10 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Sprite extends Collection<Pixel> {
+	private int pos_x, pos_y;
 	private int height, width; // Total sizes of the sprite
 	private int pixels_height, pixels_width; // Dimensions of pixel array
 
-	public Sprite(Color[][] pixel_array, int pos_x, int pos_y) {		
+	public Sprite(Color[][] pixel_array, int pos_x, int pos_y) {	
+		this.pos_x = pos_x;
+		this.pos_y = pos_y;
 		this.pixels_height = pixel_array.length;
 		this.pixels_width = pixel_array[0].length;
 		
@@ -28,6 +31,8 @@ public class Sprite extends Collection<Pixel> {
 		for(Pixel pixel: elements) {
 			pixel.move(dx, dy);
 		}
+		pos_x += dx;
+		pos_y += dy;
 	}
 
 	public int getWidth() {
@@ -36,6 +41,14 @@ public class Sprite extends Collection<Pixel> {
 
 	public int getHeight() {
 		return height;
+	}
+	
+	public int getPosX() {
+		return pos_x;
+	}
+	
+	public int getPosY() {
+		return pos_y;
 	}
 	
 	void render(Graphics graphics) {
