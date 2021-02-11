@@ -53,6 +53,14 @@ public class Sprite extends Collection<Pixel> {
 		return pos_y;
 	}
 	
+	public static int getPixelWidth() {
+		return Pixel.width;
+	}
+	
+	public static int getPixelHeight() {
+		return Pixel.height;
+	}
+	
 	public void render(Graphics graphics) {
 		for(Pixel pixel: elements) {
 			pixel.render(graphics);
