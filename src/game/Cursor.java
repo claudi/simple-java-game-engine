@@ -3,7 +3,7 @@ package game;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Cursor {
+class Cursor {
 	private int pos_x, pos_y;
 	private int width, height;
 	private String label;
