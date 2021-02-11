@@ -1,5 +1,5 @@
 package game;
 
-public enum MenuCommand {
+enum MenuCommand {
 	NEW_GAME, LOAD_GAME, LEADERBOARD, EXIT;
 }
