@@ -6,10 +6,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-abstract class Collection<E> implements List<E> {
-	List<E> elements = new ArrayList<E>();
+abstract public class Collection<E> implements List<E> {
+	public List<E> elements = new ArrayList<E>();
 
-	abstract void render(Graphics graphics);
+	public abstract void render(Graphics graphics);
 
 	public int size() {
 		return elements.size();
