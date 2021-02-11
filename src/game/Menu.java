@@ -7,7 +7,7 @@ import java.awt.event.KeyListener;
 import java.util.LinkedList;
 import java.util.ListIterator;
 
-public class Menu implements KeyListener {
+class Menu implements KeyListener {
 	Game game;
 	private boolean inMenu = false;
 	Cursor cursor;
