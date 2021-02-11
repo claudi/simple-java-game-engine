@@ -2,9 +2,9 @@ package spaceInvaders;
 
 import java.awt.Color;
 
+import engine.Bullet;
 import engine.Game;
 import engine.Player;
-import game.Bullet;
 
 public class Jugador extends Player {
 	private boolean vb_l = false, vb_r = false;
@@ -54,6 +54,11 @@ public class Jugador extends Player {
 	}
 	
 	public void endFrame() {
-		
+		if (bullet_cooldown_count >= bullet_cooldown) {
+			bullets.add(new Bullet(getPosX(), getPosY()));
+		}
+		if (bullet_cooldown_count > 0) {
+			bullet_cooldown_count--;
+		}
 	}
 }
