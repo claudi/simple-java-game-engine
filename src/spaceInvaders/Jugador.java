@@ -15,32 +15,32 @@ public class Jugador extends Player {
 	private int v_l = 0, v_r = 0;
 	private int v_increment = 10;
 	static Color[][] pixel_array = Game.sprites("player");
-	
+
 	public Jugador(int pos_x, int pos_y) {
 		super(pixel_array, pos_x, pos_y);
 		this.bullets = new Bales();
 		this.lives = 3;
 	}
-	
+
 	public boolean isAlive() {
 		return lives != 0;
 	}
-	
+
 	protected void moveLeftCommand(boolean status) {
-		if(status && !vb_l) {
+		if (status && !vb_l) {
 			vb_l = true;
 			v_l += -v_increment;
-		} else if(!status && vb_l) {
+		} else if (!status && vb_l) {
 			vb_l = false;
 			v_l -= -v_increment;
 		}
 	}
 
 	protected void moveRightCommand(boolean status) {
-		if(status && !vb_r) {
+		if (status && !vb_r) {
 			vb_r = true;
 			v_r += v_increment;
-		} else if(!status && vb_r) {
+		} else if (!status && vb_r) {
 			vb_r = false;
 			v_r -= v_increment;
 		}
@@ -51,7 +51,7 @@ public class Jugador extends Player {
 			bullet_cooldown_count = bullet_cooldown;
 		}
 	}
-	
+
 	public void setBounds(Game game) {
 		this.bounds = game.getWidth();
 	}
@@ -66,7 +66,7 @@ public class Jugador extends Player {
 		}
 		bullets.move(0, bullet_speed);
 	}
-	
+
 	public void endFrame() {
 		if (bullet_cooldown_count >= bullet_cooldown) {
 			bullets.add(new Bala(getPosX(), getPosY()));
@@ -75,7 +75,7 @@ public class Jugador extends Player {
 			bullet_cooldown_count--;
 		}
 	}
-	
+
 	public void hit() {
 		lives--;
 	}

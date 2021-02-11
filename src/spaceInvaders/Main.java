@@ -12,21 +12,21 @@ public class Main {
 	public static void main(String[] args) {
 		Game game = new Game("Space Invaders");
 		game.setBackground(generateBackground(game.getWidth(), game.getHeight()));
-		
-		Jugador jugador = new Jugador(game.getWidth() / 2, Math.round(0.9f*game.getHeight()));
+
+		Jugador jugador = new Jugador(game.getWidth() / 2, Math.round(0.9f * game.getHeight()));
 		jugador.setBounds(game);
 		game.setPlayer(jugador);
-		
+
 		Enemics enemics = new Enemics(5, 5, game.getWidth() / 2);
 		enemics.setBounds(game);
 		game.setEnemies(enemics);
-		
+
 		Bala.setBounds(game);
-		
+
 		game.mainLoop();
 		game.quitGame();
 	}
-	
+
 	private static BufferedImage generateBackground(int width, int height) {
 		BufferedImage background = new BufferedImage(width, height, BufferedImage.TYPE_3BYTE_BGR);
 		for (int i = 0; i < width; i++) {

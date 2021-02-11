@@ -9,7 +9,7 @@ public class Enemics extends Enemies {
 	private int bounds;
 	private int bullet_speed = 12;
 	private int v = 3;
-	
+
 	public Enemics(int n, int m, int pos_x) {
 		this.bullets = new Bales();
 		int enemy_width = Sprite.getPixelWidth() * Enemic.pixel_array[0].length;
@@ -22,11 +22,11 @@ public class Enemics extends Enemies {
 
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
-				elements.add(new Enemic(pos_x + enemy_width / 2 + pad_x * i - width / 2, pad_y * (j+1)));
+				elements.add(new Enemic(pos_x + enemy_width / 2 + pad_x * i - width / 2, pad_y * (j + 1)));
 			}
 		}
 	}
-	
+
 	public void setBounds(Game game) {
 		this.bounds = game.getWidth();
 	}
@@ -40,7 +40,7 @@ public class Enemics extends Enemies {
 			if (pos_x - 4 * width < 0) {
 				v = -v;
 				break;
-			} else if(pos_x + 4 * width > bounds) {
+			} else if (pos_x + 4 * width > bounds) {
 				v = -v;
 				break;
 			}
