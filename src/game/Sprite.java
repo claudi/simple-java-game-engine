@@ -3,7 +3,7 @@ package game;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Sprite extends Collection<Pixel> {
+class Sprite extends Collection<Pixel> {
 	int height, width; // Total sizes of the sprite
 	int pixels_height, pixels_width; // Dimensions of pixel array
 
