@@ -1,5 +1,20 @@
 package engine;
 
-abstract public class Entity {
-	
+import java.awt.Color;
+
+abstract public class Entity extends Sprite {
+	public Entity(Color[][] pixel_array, int pos_x, int pos_y) {
+		super(pixel_array, pos_x, pos_y);
+	}
+
+	boolean collision(Entity entity) {
+		for (Pixel pixel : elements) {
+			if (pixel.collision(entity)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	abstract void endFrame();
 }
