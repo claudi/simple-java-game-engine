@@ -14,6 +14,4 @@ abstract public class Bullet extends Entity {
 	}
 
 	abstract public void endFrame();
-
-	abstract public boolean outOfBounds();
 }
