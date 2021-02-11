@@ -3,7 +3,7 @@ package game;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Score {
+class Score {
 	int enemies_hit;
 	int bullets_hit;
 	int bullets_missed;

@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class Game {
+class Game {
 	Player player;
 	GameFrame frame;
 	Enemies enemies;

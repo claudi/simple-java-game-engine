@@ -2,7 +2,7 @@ package game;
 
 import java.awt.Graphics;
 
-public class Enemies extends Collection<Enemy> {
+class Enemies extends Collection<Enemy> {
 	int n, m;
 	int pos_x = GameFrame.WIDTH / 2, pos_y;
 	public int width, height;

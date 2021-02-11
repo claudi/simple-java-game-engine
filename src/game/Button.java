@@ -3,7 +3,7 @@ package game;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Button {
+class Button {
 	private int pos_x, pos_y;
 	private int width, height;
 	private String label;

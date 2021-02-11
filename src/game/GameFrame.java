@@ -10,7 +10,7 @@ import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
-public class GameFrame extends Frame implements WindowListener {
+class GameFrame extends Frame implements WindowListener {
 	private static final long serialVersionUID = 1L;
 	static Random random = new Random();
 	Game game;

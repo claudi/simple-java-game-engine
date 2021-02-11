@@ -2,7 +2,7 @@ package game;
 
 import java.awt.Graphics;
 
-public class Bullets extends Collection<Bullet> {
+class Bullets extends Collection<Bullet> {
 	int v;
 
 	Bullets(int v) {

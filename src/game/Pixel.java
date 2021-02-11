@@ -3,7 +3,7 @@ package game;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Pixel {
+class Pixel {
 	int pos_x, pos_y;
 	final static int width = 5, height = 5;
 	private Color color;
