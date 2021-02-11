@@ -38,4 +38,8 @@ public class Jugador extends Player {
 	protected void shootCommand() {
 		
 	}
+
+	public void endFrame() {
+		
+	}
 }
