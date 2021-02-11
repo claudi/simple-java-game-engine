@@ -2,7 +2,6 @@ package spaceInvaders;
 
 import java.awt.Color;
 
-import engine.Bullet;
 import engine.Game;
 import engine.Player;
 
@@ -11,6 +10,7 @@ public class Jugador extends Player {
 	private int bounds;
 	private int bullet_cooldown_count = 0;
 	private static int bullet_cooldown = 5;
+	private static int bullet_speed = 12;
 	private int v_l = 0, v_r = 0;
 	private int v_increment = 10;
 	static Color[][] pixel_array = Game.sprites("player_sprite");
@@ -57,11 +57,12 @@ public class Jugador extends Player {
 		if (pos_x < 0.2 * bounds) {
 			super.move(v_l, 0);
 		}
+		bullets.move(0, bullet_speed);
 	}
 	
 	public void endFrame() {
 		if (bullet_cooldown_count >= bullet_cooldown) {
-			bullets.add(new Bullet(getPosX(), getPosY()));
+			bullets.add(new Bala(getPosX(), getPosY()));
 		}
 		if (bullet_cooldown_count > 0) {
 			bullet_cooldown_count--;
