@@ -17,7 +17,7 @@ public class Main {
 		jugador.setBounds(game);
 		game.setPlayer(jugador);
 		
-		Enemics enemics = new Enemics();
+		Enemics enemics = new Enemics(5, 5, game.getWidth() / 2);
 		game.setEnemies(enemics);
 		
 		game.mainLoop();
