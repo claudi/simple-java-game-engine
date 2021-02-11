@@ -10,6 +10,7 @@ abstract public class Player extends Entity implements KeyListener {
 	public Player(int pos_x, int pos_y) {
 		super(pixel_array, pos_x, pos_y);
 	}
+	public abstract void move();
 	protected abstract void moveLeftCommand(boolean status);
 	protected abstract void moveRightCommand(boolean status);
 	protected abstract void shootCommand();
