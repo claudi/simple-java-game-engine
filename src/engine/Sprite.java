@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Sprite extends Collection<Pixel> {
-	static Color[][] pixel_array;
-	
 	private int pos_x, pos_y;
 	private int height, width; // Total sizes of the sprite
 	private int pixels_height, pixels_width; // Dimensions of pixel array

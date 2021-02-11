@@ -7,16 +7,23 @@ import engine.Player;
 
 public class Jugador extends Player {
 	private boolean vb_l = false, vb_r = false;
+	private int lives;
 	private int bounds;
 	private int bullet_cooldown_count = 0;
 	private static int bullet_cooldown = 5;
-	private static int bullet_speed = 12;
+	private static int bullet_speed = -30;
 	private int v_l = 0, v_r = 0;
 	private int v_increment = 10;
-	static Color[][] pixel_array = Game.sprites("player_sprite");
+	static Color[][] pixel_array = Game.sprites("player");
 	
 	public Jugador(int pos_x, int pos_y) {
-		super(pos_x, pos_y);
+		super(pixel_array, pos_x, pos_y);
+		this.bullets = new Bales();
+		this.lives = 3;
+	}
+	
+	public boolean isAlive() {
+		return lives != 0;
 	}
 	
 	protected void moveLeftCommand(boolean status) {
@@ -51,10 +58,10 @@ public class Jugador extends Player {
 
 	public void move() {
 		int pos_x = getPosX();
-		if (pos_x > 0.8 * bounds) {
+		if (pos_x < 0.8 * bounds) {
 			super.move(v_r, 0);
 		}
-		if (pos_x < 0.2 * bounds) {
+		if (pos_x > 0.2 * bounds) {
 			super.move(v_l, 0);
 		}
 		bullets.move(0, bullet_speed);
@@ -67,5 +74,9 @@ public class Jugador extends Player {
 		if (bullet_cooldown_count > 0) {
 			bullet_cooldown_count--;
 		}
+	}
+	
+	public void hit() {
+		lives--;
 	}
 }

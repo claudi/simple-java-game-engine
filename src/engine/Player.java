@@ -1,19 +1,25 @@
 package engine;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 abstract public class Player extends Entity implements KeyListener {
 	public Bullets bullets;
 	
-	public Player(int bounds_x, int bounds_y) {
-		super(bounds_x / 2, (int) 0.8*bounds_y);
+	public Player(Color[][] pixel_array, int pos_x, int pos_y) {
+		super(pixel_array,pos_x, pos_y);
 	}
 	
 	public abstract void move();
 	protected abstract void moveLeftCommand(boolean status);
 	protected abstract void moveRightCommand(boolean status);
 	protected abstract void shootCommand();
+	public abstract boolean isAlive();
+	public boolean isDead() {
+		return !isAlive();
+	}
 	
 	public void keyTyped(KeyEvent e) {}
 	
@@ -23,7 +29,7 @@ abstract public class Player extends Entity implements KeyListener {
 		case KeyEvent.VK_LEFT:
 			moveLeftCommand(false);
 			break;
-		case KeyEvent.VK_W:
+		case KeyEvent.VK_D:
 		case KeyEvent.VK_RIGHT:
 			moveRightCommand(false);
 			break;
@@ -32,13 +38,18 @@ abstract public class Player extends Entity implements KeyListener {
 		}
 	}
 
+	public void render(Graphics graphics) {
+		super.render(graphics);
+		bullets.render(graphics);
+	}
+
 	public void keyPressed(KeyEvent e) {
 		switch(e.getKeyCode()) {
 		case KeyEvent.VK_A:
 		case KeyEvent.VK_LEFT:
 			moveLeftCommand(true);
 			break;
-		case KeyEvent.VK_W:
+		case KeyEvent.VK_D:
 		case KeyEvent.VK_RIGHT:
 			moveRightCommand(true);
 			break;

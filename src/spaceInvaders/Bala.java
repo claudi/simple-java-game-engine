@@ -6,20 +6,27 @@ import engine.Bullet;
 import engine.Game;
 
 public class Bala extends Bullet {
+	private static int bounds;
 	static Color[][] pixel_array = Game.sprites("bullet");
 	
 	public Bala(int pos_x, int pos_y) {
-		super(pos_x, pos_y);
+		super(pixel_array, pos_x, pos_y);
 	}
 
 	public void endFrame() {}
-
-	public boolean outOfBounds(int maxHeight) {
+	
+	public static void setBounds(Game game) {
+		Bala.bounds = game.getHeight();
+	} 
+	
+	public boolean outOfBounds() {
 		int pos_y = getPosY();
-		if (pos_y + getHeight() <= 0 || pos_y >= maxHeight) {
+		int height = getHeight();
+		if (pos_y + height <= 0 || pos_y >= bounds) {
 			return true;
-		}
-		return false;
+		}		return false;
 	}
+	
+	public void hit() {}
 
 }
