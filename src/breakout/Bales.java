@@ -1,4 +1,4 @@
-package brickBreak;
+package breakout;
 
 import engine.Bullets;
 import engine.Entity;

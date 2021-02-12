@@ -1,4 +1,4 @@
-package brickBreak;
+package breakout;
 
 import java.awt.Color;
 import java.awt.Graphics;
