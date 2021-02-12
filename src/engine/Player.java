@@ -20,12 +20,6 @@ abstract public class Player extends Entity implements KeyListener {
 
 	protected abstract void shootCommand();
 
-	public abstract boolean isAlive();
-
-	public boolean isDead() {
-		return !isAlive();
-	}
-
 	public void keyTyped(KeyEvent e) {
 	}
 

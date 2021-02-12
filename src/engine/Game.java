@@ -50,6 +50,7 @@ public class Game {
 			if (frame.isActive()) {
 				makeMoves();
 				detectCollisions();
+				removeDead();
 				render();
 				endFrame();
 			}
@@ -82,8 +83,8 @@ public class Game {
 			while (enemies_bullets_iterator.hasNext()) {
 				Bullet enemy_bullet = enemies_bullets_iterator.next();
 				if (player_bullet.collision(enemy_bullet)) {
-					bullets_iterator.remove();
-					enemies_bullets_iterator.remove();
+					player_bullet.hit();
+					enemy_bullet.hit();
 					break;
 				}
 			}
@@ -93,10 +94,10 @@ public class Game {
 		while (enemies_bullets_iterator.hasNext()) {
 			Bullet bullet = enemies_bullets_iterator.next();
 			if (bullet.outOfBounds()) {
-				enemies_bullets_iterator.remove();
+				bullet.hit();
 			} else {
 				if (bullet.collision(player)) {
-					enemies_bullets_iterator.remove();
+					bullet.hit();
 					player.hit();
 				}
 			}
@@ -107,7 +108,7 @@ public class Game {
 			Bullet bullet = bullets_iterator.next();
 
 			if (bullet.outOfBounds()) {
-				bullets_iterator.remove();
+				bullet.hit();
 			} else {
 				enemies_iterator = enemies.iterator();
 				while (enemies_iterator.hasNext()) {
@@ -115,10 +116,32 @@ public class Game {
 
 					if (bullet.collision(enemy)) {
 						enemy.hit();
-						bullets_iterator.remove();
-						enemies_iterator.remove();
+						bullet.hit();
+						break;
 					}
 				}
+			}
+		}
+	}
+
+	void removeDead() {
+		Iterator<Bullet> bullets_iterator = player.bullets.iterator();
+		Iterator<Bullet> enemies_bullets_iterator = enemies.bullets.iterator();
+		Iterator<Enemy> enemies_iterator = enemies.iterator();
+
+		while (bullets_iterator.hasNext()) {
+			if (bullets_iterator.next().isDead()) {
+				bullets_iterator.remove();
+			}
+		}
+		while (enemies_bullets_iterator.hasNext()) {
+			if (enemies_bullets_iterator.next().isDead()) {
+				enemies_bullets_iterator.remove();
+			}
+		}
+		while (enemies_iterator.hasNext()) {
+			if (enemies_iterator.next().isDead()) {
+				enemies_iterator.remove();
 			}
 		}
 	}

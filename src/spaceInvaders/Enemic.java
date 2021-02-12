@@ -7,6 +7,7 @@ import engine.Enemy;
 import engine.Game;
 
 public class Enemic extends Enemy {
+	private boolean alive = true;
 	static Color[][] pixel_array = Game.sprites("enemy");
 
 	public Enemic(int pos_x, int pos_y) {
@@ -18,6 +19,11 @@ public class Enemic extends Enemy {
 	}
 
 	public void hit() {
+		alive = false;
+	}
+
+	public boolean isDead() {
+		return !alive;
 	}
 
 	public void endFrame() {
