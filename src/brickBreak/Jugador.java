@@ -16,7 +16,7 @@ class Jugador extends Player {
 	private boolean vb_l = false, vb_r = false;
 	private int v_l = 0, v_r = 0;
 	private int v_increment = 5;
-	private double angle = -Math.PI / 2;
+	private double angle = -Math.PI / 3;
 	private int bounds;
 	private int lives = 3;
 
@@ -89,10 +89,9 @@ class Jugador extends Player {
 
 	@Override
 	protected void shootCommand() {
-		if (bullets.size() >= 1) {
-			// return;
+		if (bullets.size() == 0) {
+			bullets.add(new Bala(getPosX(), getPosY() - Bala.getPixelHeight() * Bala.pixel_array.length - 1, angle));
 		}
-		bullets.add(new Bala(getPosX(), getPosY() - Bala.getPixelHeight() * Bala.pixel_array.length - 1, angle));
 	}
 
 	@Override

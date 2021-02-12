@@ -15,7 +15,7 @@ class Main {
 		jugador.setBounds(game);
 		game.setPlayer(jugador);
 
-		Blocks enemics = new Blocks(5, 5, game);
+		Blocks enemics = new Blocks(20, 10, game);
 		game.setEnemies(enemics);
 
 		Bala.setBounds(game);
