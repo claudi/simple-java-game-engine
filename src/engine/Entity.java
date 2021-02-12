@@ -7,7 +7,7 @@ abstract public class Entity extends Sprite {
 		super(pixel_array, pos_x, pos_y);
 	}
 
-	boolean collision(Entity entity) {
+	public boolean collision(Entity entity) {
 		for (Pixel pixel : elements) {
 			if (pixel.collision(entity)) {
 				return true;
