@@ -14,6 +14,7 @@ public class Game {
 	GameFrame frame;
 	Player player;
 	Enemies enemies;
+	int delay_t = 50;
 
 	public Game(String name) {
 		frame = new GameFrame(name);
@@ -155,9 +156,13 @@ public class Game {
 
 	void delay() {
 		try {
-			Thread.sleep(50);
+			Thread.sleep(delay_t);
 		} catch (InterruptedException e) {
 		}
+	}
+	
+	public void setDelay(int delay_t) {
+		this.delay_t = delay_t;
 	}
 
 	void endFrame() {
