@@ -37,9 +37,9 @@ class Pixel {
 		boolean leftLTright = this.pos_x - width / 2 <= pixel.pos_x + width / 2;
 		boolean rightGTleft = this.pos_x + width / 2 >= pixel.pos_x - width / 2;
 		boolean topLTbottom = this.pos_y <= pixel.pos_y + height;
-		boolean bottolGTtop = this.pos_y + height >= pixel.pos_y;
+		boolean bottomGTtop = this.pos_y + height >= pixel.pos_y;
 
-		if (leftLTright && rightGTleft && topLTbottom && bottolGTtop) {
+		if (leftLTright && rightGTleft && topLTbottom && bottomGTtop) {
 			return true;
 		}
 		return false;
