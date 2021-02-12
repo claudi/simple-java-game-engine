@@ -17,6 +17,7 @@ abstract public class Entity extends Sprite {
 	}
 
 	public abstract void hit();
+
 	public abstract boolean isDead();
 
 	public boolean isAlive() {
