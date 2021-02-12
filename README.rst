@@ -16,7 +16,7 @@ The package contains the engine, as well as two implementations of such games
 
 There is also a space invaders game developed initially without the engine,
 which was done initially to test the waters, and to make sure I fulfilled the
-assignment if I couldn't finish the engine.
+assignment if I couldn't finish the engine in time.
 
 It is no coincidence these are all retro games: they are the only ones simple
 enough to be able to make use of this package.
