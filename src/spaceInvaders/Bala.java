@@ -7,6 +7,7 @@ import engine.Game;
 
 public class Bala extends Bullet {
 	private static int bounds;
+	private boolean alive = true;
 	static Color[][] pixel_array = Game.sprites("bullet");
 
 	public Bala(int pos_x, int pos_y) {
@@ -30,6 +31,11 @@ public class Bala extends Bullet {
 	}
 
 	public void hit() {
+		alive = false;
+	}
+
+	public boolean isDead() {
+		return !alive;
 	}
 
 }
