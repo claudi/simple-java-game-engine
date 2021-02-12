@@ -5,7 +5,7 @@ import java.awt.Color;
 import engine.Bullet;
 import engine.Game;
 
-public class Bala extends Bullet {
+class Bala extends Bullet {
 	private static int bounds;
 	private boolean alive = true;
 	static Color[][] pixel_array = Game.sprites("bullet");

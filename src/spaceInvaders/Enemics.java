@@ -5,7 +5,7 @@ import engine.Enemy;
 import engine.Game;
 import engine.Sprite;
 
-public class Enemics extends Enemies {
+class Enemics extends Enemies {
 	private int bounds;
 	private int bullet_speed = 12;
 	private int v = 3;

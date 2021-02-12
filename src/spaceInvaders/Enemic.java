@@ -6,7 +6,7 @@ import engine.Bullet;
 import engine.Enemy;
 import engine.Game;
 
-public class Enemic extends Enemy {
+class Enemic extends Enemy {
 	private boolean alive = true;
 	static Color[][] pixel_array = Game.sprites("enemy");
 

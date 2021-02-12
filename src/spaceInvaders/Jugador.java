@@ -5,7 +5,7 @@ import java.awt.Color;
 import engine.Game;
 import engine.Player;
 
-public class Jugador extends Player {
+class Jugador extends Player {
 	private boolean vb_l = false, vb_r = false;
 	private int lives;
 	private int bounds;
