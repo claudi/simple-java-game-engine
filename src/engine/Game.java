@@ -5,8 +5,9 @@ import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -183,12 +184,12 @@ public class Game {
 
 	public static Color[][] sprites(String name) {
 		int width, height, colours;
-		String file = "./res/" + name + ".xpm";
+		InputStream file = Game.class.getResourceAsStream("/" + name + ".xpm");
 		Color sprite[][] = null;
 
 		BufferedReader reader;
 		try {
-			reader = new BufferedReader(new FileReader(file));
+			reader = new BufferedReader(new InputStreamReader(file));
 			String line = reader.readLine();
 
 			String dims[] = line.split(" ");
