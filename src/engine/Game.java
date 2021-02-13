@@ -59,13 +59,7 @@ public class Game {
 			delay();
 		}
 
-		if (player.isAlive()) { // Player win
-			System.out.println("Player win");
-		} else if (enemies.size() > 0) { // Enemies win
-			quitGame();
-		} else { // Tie
-			quitGame();
-		}
+		quitGame();
 	}
 
 	private void makeMoves() {
