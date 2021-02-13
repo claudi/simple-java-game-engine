@@ -6,7 +6,7 @@ import java.util.Random;
 
 import engine.Game;
 
-class Main {
+public class Main {
 	static Random random = new Random();
 
 	public static void main(String[] args) {

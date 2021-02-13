@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 
 import engine.Game;
 
-class Main {
+public class Main {
 	public static void main(String[] args) {
 		Game game = new Game("Brick break");
 		game.setBackground(generateBackground(game));
